@@ -1,11 +1,20 @@
 aid: azure-service-bus
 name: Azure Service Bus
 description: >-
-  Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics.
+  Azure Service Bus is a fully managed enterprise message broker with
+  message queues and publish-subscribe topics, providing reliable message
+  delivery for decoupling applications and services in cloud and hybrid
+  environments.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Microservices
+  - Messaging
+  - Message Broker
+  - Queues
+  - Pub/Sub
+  - Azure
+  - Cloud
+  - Enterprise
 url: >-
   https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -15,14 +24,33 @@ apis:
   - aid: azure-service-bus:azure-service-bus
     name: Azure Service Bus
     description: >-
-      Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics.
-    humanURL: https://azure.microsoft.com/
+      Azure Service Bus is a fully managed enterprise message broker
+      supporting message queues and publish-subscribe topics with features
+      like dead-lettering, sessions, scheduled delivery, and transactions
+      for building reliable distributed applications.
+    humanURL: https://azure.microsoft.com/en-us/products/service-bus
     tags:
-      - Microservices
+      - Messaging
+      - Message Broker
+      - Queues
+      - Pub/Sub
+      - Azure
+      - Cloud
+      - Enterprise
     properties: []
 common:
   - type: Website
-    url: https://azure.microsoft.com/
+    url: https://azure.microsoft.com/en-us/products/service-bus
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/details/service-bus/
+  - type: GitHub
+    url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus
+  - type: Blog
+    url: https://azure.microsoft.com/en-us/blog/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
