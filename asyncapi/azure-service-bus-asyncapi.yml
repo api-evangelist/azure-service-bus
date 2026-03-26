@@ -1,0 +1,180 @@
+asyncapi: 2.6.0
+info:
+  title: Azure Service Bus Messaging
+  version: '2021-11-01'
+  description: >-
+    Azure Service Bus is a fully managed enterprise message broker with message
+    queues and publish-subscribe topics. This AsyncAPI spec describes the
+    messaging patterns for sending and receiving messages via Service Bus
+    queues and topics.
+  contact:
+    name: Microsoft Azure
+    url: https://azure.microsoft.com/en-us/products/service-bus
+servers:
+  azure-service-bus:
+    url: '{namespaceName}.servicebus.windows.net'
+    protocol: amqp
+    protocolVersion: '1.0'
+    description: Azure Service Bus AMQP endpoint
+    variables:
+      namespaceName:
+        description: The Service Bus namespace name
+  azure-service-bus-https:
+    url: '{namespaceName}.servicebus.windows.net'
+    protocol: https
+    description: Azure Service Bus HTTP endpoint
+    variables:
+      namespaceName:
+        description: The Service Bus namespace name
+channels:
+  '{queueName}':
+    description: >-
+      A Service Bus queue provides FIFO message delivery to one or more
+      competing consumers. Messages are stored durably in the queue until
+      retrieved by a receiver.
+    parameters:
+      queueName:
+        description: The name of the Service Bus queue.
+        schema:
+          type: string
+    publish:
+      operationId: sendToQueue
+      summary: Send a message to a queue
+      description: >-
+        Send a message to a Service Bus queue. Messages can include a body,
+        application properties, and system properties such as TTL and
+        session ID.
+      message:
+        $ref: '#/components/messages/ServiceBusMessage'
+    subscribe:
+      operationId: receiveFromQueue
+      summary: Receive a message from a queue
+      description: >-
+        Receive messages from a Service Bus queue using peek-lock or
+        receive-and-delete mode.
+      message:
+        $ref: '#/components/messages/ServiceBusMessage'
+  '{topicName}':
+    description: >-
+      A Service Bus topic enables publish-subscribe messaging. Publishers
+      send messages to a topic, and subscribers receive messages from
+      subscriptions associated with the topic.
+    parameters:
+      topicName:
+        description: The name of the Service Bus topic.
+        schema:
+          type: string
+    publish:
+      operationId: sendToTopic
+      summary: Publish a message to a topic
+      description: >-
+        Publish a message to a Service Bus topic. The message is delivered
+        to all matching subscriptions based on filter rules.
+      message:
+        $ref: '#/components/messages/ServiceBusMessage'
+  '{topicName}/subscriptions/{subscriptionName}':
+    description: >-
+      A subscription to a Service Bus topic. Each subscription receives a
+      copy of messages published to the topic, filtered by subscription
+      rules.
+    parameters:
+      topicName:
+        description: The name of the Service Bus topic.
+        schema:
+          type: string
+      subscriptionName:
+        description: The name of the subscription.
+        schema:
+          type: string
+    subscribe:
+      operationId: receiveFromSubscription
+      summary: Receive a message from a topic subscription
+      description: >-
+        Receive messages from a topic subscription using peek-lock or
+        receive-and-delete mode.
+      message:
+        $ref: '#/components/messages/ServiceBusMessage'
+components:
+  messages:
+    ServiceBusMessage:
+      name: ServiceBusMessage
+      title: Service Bus Message
+      summary: A message sent or received via Azure Service Bus.
+      contentType: application/json
+      payload:
+        type: object
+        properties:
+          body:
+            description: The message body. Can be any serializable content.
+          contentType:
+            type: string
+            description: The content type of the message body.
+          correlationId:
+            type: string
+            description: Correlation identifier for request-reply patterns.
+          subject:
+            type: string
+            description: Application-specific label (also known as Label).
+          messageId:
+            type: string
+            description: >-
+              Unique identifier for the message, used for duplicate
+              detection.
+          replyTo:
+            type: string
+            description: Address to reply to.
+          replyToSessionId:
+            type: string
+            description: Session identifier for reply messages.
+          sessionId:
+            type: string
+            description: Session identifier for session-aware queues/subscriptions.
+          timeToLive:
+            type: string
+            description: Message time-to-live (ISO 8601 duration).
+          to:
+            type: string
+            description: Destination address.
+          applicationProperties:
+            type: object
+            additionalProperties: true
+            description: Application-specific custom properties.
+          enqueuedTime:
+            type: string
+            format: date-time
+            description: UTC time when the message was enqueued.
+          sequenceNumber:
+            type: integer
+            format: int64
+            description: Unique 64-bit integer assigned to a message by Service Bus.
+          deliveryCount:
+            type: integer
+            description: Number of deliveries attempted for this message.
+          lockToken:
+            type: string
+            format: uuid
+            description: Token for the current lock on the message (peek-lock mode).
+    DeadLetterMessage:
+      name: DeadLetterMessage
+      title: Dead Letter Message
+      summary: A message moved to the dead-letter queue.
+      contentType: application/json
+      payload:
+        type: object
+        properties:
+          body:
+            description: The original message body.
+          deadLetterReason:
+            type: string
+            description: Reason for dead-lettering.
+          deadLetterErrorDescription:
+            type: string
+            description: Error description for dead-lettering.
+          messageId:
+            type: string
+          enqueuedTime:
+            type: string
+            format: date-time
+          sequenceNumber:
+            type: integer
+            format: int64

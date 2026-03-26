@@ -37,7 +37,16 @@ apis:
       - Azure
       - Cloud
       - Enterprise
-    properties: []
+    properties:
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/openapi/azure-service-bus-openapi.yml
+      - type: AsyncAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
 common:
   - type: Website
     url: https://azure.microsoft.com/en-us/products/service-bus

@@ -1,0 +1,845 @@
+openapi: 3.1.0
+info:
+  title: Azure Service Bus Management API
+  description: >-
+    The Azure Service Bus REST API provides operations for managing Service Bus
+    resources including namespaces, queues, topics, subscriptions, and rules
+    through the Azure Resource Manager.
+  version: '2021-11-01'
+  contact:
+    name: Microsoft Azure
+    url: https://azure.microsoft.com/en-us/products/service-bus
+servers:
+  - url: https://management.azure.com
+    description: Azure Resource Manager endpoint
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.ServiceBus/namespaces:
+    get:
+      operationId: Namespaces_List
+      summary: List all namespaces
+      description: Gets all the available namespaces within the subscription.
+      tags:
+        - Namespaces
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBNamespaceListResult'
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces:
+    get:
+      operationId: Namespaces_ListByResourceGroup
+      summary: List namespaces by resource group
+      description: Gets the available namespaces within a resource group.
+      tags:
+        - Namespaces
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBNamespaceListResult'
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}:
+    get:
+      operationId: Namespaces_Get
+      summary: Get a namespace
+      description: Gets a description for the specified namespace.
+      tags:
+        - Namespaces
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBNamespace'
+    put:
+      operationId: Namespaces_CreateOrUpdate
+      summary: Create or update a namespace
+      description: Creates or updates a Service Bus namespace.
+      tags:
+        - Namespaces
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - $ref: '#/components/parameters/ApiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SBNamespace'
+      responses:
+        '200':
+          description: Namespace updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBNamespace'
+        '201':
+          description: Namespace created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBNamespace'
+        '202':
+          description: Namespace create/update request accepted
+    delete:
+      operationId: Namespaces_Delete
+      summary: Delete a namespace
+      description: Deletes an existing namespace.
+      tags:
+        - Namespaces
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Namespace deleted
+        '202':
+          description: Namespace delete request accepted
+        '204':
+          description: No content
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues:
+    get:
+      operationId: Queues_ListByNamespace
+      summary: List queues
+      description: Gets the queues within a namespace.
+      tags:
+        - Queues
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - $ref: '#/components/parameters/ApiVersion'
+        - name: $skip
+          in: query
+          schema:
+            type: integer
+        - name: $top
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBQueueListResult'
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}:
+    get:
+      operationId: Queues_Get
+      summary: Get a queue
+      description: Returns a description for the specified queue.
+      tags:
+        - Queues
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: queueName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBQueue'
+    put:
+      operationId: Queues_CreateOrUpdate
+      summary: Create or update a queue
+      description: Creates or updates a Service Bus queue.
+      tags:
+        - Queues
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: queueName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SBQueue'
+      responses:
+        '200':
+          description: Queue updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBQueue'
+    delete:
+      operationId: Queues_Delete
+      summary: Delete a queue
+      description: Deletes a queue from the specified namespace.
+      tags:
+        - Queues
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: queueName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Queue deleted
+        '204':
+          description: No content
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics:
+    get:
+      operationId: Topics_ListByNamespace
+      summary: List topics
+      description: Gets all the topics in a namespace.
+      tags:
+        - Topics
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - $ref: '#/components/parameters/ApiVersion'
+        - name: $skip
+          in: query
+          schema:
+            type: integer
+        - name: $top
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBTopicListResult'
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}:
+    get:
+      operationId: Topics_Get
+      summary: Get a topic
+      description: Returns a description for the specified topic.
+      tags:
+        - Topics
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBTopic'
+    put:
+      operationId: Topics_CreateOrUpdate
+      summary: Create or update a topic
+      description: Creates a topic in the specified namespace.
+      tags:
+        - Topics
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SBTopic'
+      responses:
+        '200':
+          description: Topic updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBTopic'
+    delete:
+      operationId: Topics_Delete
+      summary: Delete a topic
+      description: Deletes a topic from the specified namespace.
+      tags:
+        - Topics
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Topic deleted
+        '204':
+          description: No content
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions:
+    get:
+      operationId: Subscriptions_ListByTopic
+      summary: List subscriptions for a topic
+      description: List all the subscriptions under a specified topic.
+      tags:
+        - Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBSubscriptionListResult'
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions/{subscriptionName}:
+    get:
+      operationId: Subscriptions_Get
+      summary: Get a subscription
+      description: Returns a subscription description for the specified topic.
+      tags:
+        - Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: subscriptionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBSubscription'
+    put:
+      operationId: Subscriptions_CreateOrUpdate
+      summary: Create or update a subscription
+      description: Creates a topic subscription.
+      tags:
+        - Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: subscriptionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SBSubscription'
+      responses:
+        '200':
+          description: Subscription updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBSubscription'
+    delete:
+      operationId: Subscriptions_Delete
+      summary: Delete a subscription
+      description: Deletes a subscription from the specified topic.
+      tags:
+        - Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/SubscriptionId'
+        - $ref: '#/components/parameters/ResourceGroupName'
+        - $ref: '#/components/parameters/NamespaceName'
+        - name: topicName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: subscriptionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Subscription deleted
+        '204':
+          description: No content
+components:
+  parameters:
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The Azure subscription ID.
+      schema:
+        type: string
+    ResourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: Name of the resource group.
+      schema:
+        type: string
+    NamespaceName:
+      name: namespaceName
+      in: path
+      required: true
+      description: The namespace name.
+      schema:
+        type: string
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Client API version.
+      schema:
+        type: string
+        default: '2021-11-01'
+  schemas:
+    SBNamespace:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          readOnly: true
+        location:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        sku:
+          type: object
+          properties:
+            name:
+              type: string
+              enum:
+                - Basic
+                - Standard
+                - Premium
+            tier:
+              type: string
+              enum:
+                - Basic
+                - Standard
+                - Premium
+            capacity:
+              type: integer
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+              readOnly: true
+            status:
+              type: string
+              readOnly: true
+            createdAt:
+              type: string
+              format: date-time
+              readOnly: true
+            updatedAt:
+              type: string
+              format: date-time
+              readOnly: true
+            serviceBusEndpoint:
+              type: string
+              readOnly: true
+            metricId:
+              type: string
+              readOnly: true
+            zoneRedundant:
+              type: boolean
+            disableLocalAuth:
+              type: boolean
+            minimumTlsVersion:
+              type: string
+              enum:
+                - '1.0'
+                - '1.1'
+                - '1.2'
+    SBNamespaceListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBNamespace'
+        nextLink:
+          type: string
+    SBQueue:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          readOnly: true
+        properties:
+          type: object
+          properties:
+            lockDuration:
+              type: string
+              description: Lock duration timespan (ISO 8601).
+            maxSizeInMegabytes:
+              type: integer
+            requiresDuplicateDetection:
+              type: boolean
+            requiresSession:
+              type: boolean
+            defaultMessageTimeToLive:
+              type: string
+            deadLetteringOnMessageExpiration:
+              type: boolean
+            duplicateDetectionHistoryTimeWindow:
+              type: string
+            maxDeliveryCount:
+              type: integer
+            status:
+              type: string
+              enum:
+                - Active
+                - Disabled
+                - Restoring
+                - SendDisabled
+                - ReceiveDisabled
+                - Creating
+                - Deleting
+                - Renaming
+                - Unknown
+            enableBatchedOperations:
+              type: boolean
+            autoDeleteOnIdle:
+              type: string
+            enablePartitioning:
+              type: boolean
+            enableExpress:
+              type: boolean
+            forwardTo:
+              type: string
+            forwardDeadLetteredMessagesTo:
+              type: string
+            countDetails:
+              type: object
+              readOnly: true
+              properties:
+                activeMessageCount:
+                  type: integer
+                  format: int64
+                deadLetterMessageCount:
+                  type: integer
+                  format: int64
+                scheduledMessageCount:
+                  type: integer
+                  format: int64
+                transferMessageCount:
+                  type: integer
+                  format: int64
+                transferDeadLetterMessageCount:
+                  type: integer
+                  format: int64
+            createdAt:
+              type: string
+              format: date-time
+              readOnly: true
+            updatedAt:
+              type: string
+              format: date-time
+              readOnly: true
+            messageCount:
+              type: integer
+              format: int64
+              readOnly: true
+            sizeInBytes:
+              type: integer
+              format: int64
+              readOnly: true
+    SBQueueListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBQueue'
+        nextLink:
+          type: string
+    SBTopic:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          readOnly: true
+        properties:
+          type: object
+          properties:
+            defaultMessageTimeToLive:
+              type: string
+            maxSizeInMegabytes:
+              type: integer
+            maxMessageSizeInKilobytes:
+              type: integer
+              format: int64
+            requiresDuplicateDetection:
+              type: boolean
+            duplicateDetectionHistoryTimeWindow:
+              type: string
+            enableBatchedOperations:
+              type: boolean
+            status:
+              type: string
+              enum:
+                - Active
+                - Disabled
+                - Restoring
+                - SendDisabled
+                - ReceiveDisabled
+                - Creating
+                - Deleting
+                - Renaming
+                - Unknown
+            supportOrdering:
+              type: boolean
+            autoDeleteOnIdle:
+              type: string
+            enablePartitioning:
+              type: boolean
+            enableExpress:
+              type: boolean
+            countDetails:
+              type: object
+              readOnly: true
+              properties:
+                activeMessageCount:
+                  type: integer
+                  format: int64
+                deadLetterMessageCount:
+                  type: integer
+                  format: int64
+                scheduledMessageCount:
+                  type: integer
+                  format: int64
+                transferMessageCount:
+                  type: integer
+                  format: int64
+                transferDeadLetterMessageCount:
+                  type: integer
+                  format: int64
+            subscriptionCount:
+              type: integer
+              readOnly: true
+            createdAt:
+              type: string
+              format: date-time
+              readOnly: true
+            updatedAt:
+              type: string
+              format: date-time
+              readOnly: true
+            sizeInBytes:
+              type: integer
+              format: int64
+              readOnly: true
+    SBTopicListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBTopic'
+        nextLink:
+          type: string
+    SBSubscription:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          readOnly: true
+        properties:
+          type: object
+          properties:
+            lockDuration:
+              type: string
+            requiresSession:
+              type: boolean
+            defaultMessageTimeToLive:
+              type: string
+            deadLetteringOnFilterEvaluationExceptions:
+              type: boolean
+            deadLetteringOnMessageExpiration:
+              type: boolean
+            duplicateDetectionHistoryTimeWindow:
+              type: string
+            maxDeliveryCount:
+              type: integer
+            status:
+              type: string
+              enum:
+                - Active
+                - Disabled
+                - Restoring
+                - SendDisabled
+                - ReceiveDisabled
+                - Creating
+                - Deleting
+                - Renaming
+                - Unknown
+            enableBatchedOperations:
+              type: boolean
+            autoDeleteOnIdle:
+              type: string
+            forwardTo:
+              type: string
+            forwardDeadLetteredMessagesTo:
+              type: string
+            isClientAffine:
+              type: boolean
+            countDetails:
+              type: object
+              readOnly: true
+              properties:
+                activeMessageCount:
+                  type: integer
+                  format: int64
+                deadLetterMessageCount:
+                  type: integer
+                  format: int64
+                scheduledMessageCount:
+                  type: integer
+                  format: int64
+                transferMessageCount:
+                  type: integer
+                  format: int64
+                transferDeadLetterMessageCount:
+                  type: integer
+                  format: int64
+            createdAt:
+              type: string
+              format: date-time
+              readOnly: true
+            updatedAt:
+              type: string
+              format: date-time
+              readOnly: true
+            messageCount:
+              type: integer
+              format: int64
+              readOnly: true
+    SBSubscriptionListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBSubscription'
+        nextLink:
+          type: string
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: Impersonate your user account
+security:
+  - azure_auth:
+      - user_impersonation
+tags:
+  - name: Namespaces
+    description: Service Bus namespace operations
+  - name: Queues
+    description: Service Bus queue operations
+  - name: Topics
+    description: Service Bus topic operations
+  - name: Subscriptions
+    description: Service Bus topic subscription operations
