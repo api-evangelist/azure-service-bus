@@ -1,0 +1,28 @@
+aid: azure-service-bus
+name: Azure Service Bus
+description: >-
+  Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Microservices
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: azure-service-bus:azure-service-bus
+    name: Azure Service Bus
+    description: >-
+      Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics.
+    humanURL: https://azure.microsoft.com/
+    tags:
+      - Microservices
+    properties: []
+common:
+  - type: Website
+    url: https://azure.microsoft.com/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
