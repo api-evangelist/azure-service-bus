@@ -8,13 +8,13 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Messaging
-  - Message Broker
-  - Queues
-  - Pub/Sub
   - Azure
   - Cloud
   - Enterprise
+  - Message Broker
+  - Messaging
+  - Pub/Sub
+  - Queues
 url: >-
   https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -30,13 +30,13 @@ apis:
       for building reliable distributed applications.
     humanURL: https://azure.microsoft.com/en-us/products/service-bus
     tags:
-      - Messaging
-      - Message Broker
-      - Queues
-      - Pub/Sub
       - Azure
       - Cloud
       - Enterprise
+      - Message Broker
+      - Messaging
+      - Pub/Sub
+      - Queues
     properties:
       - type: OpenAPI
         url: >-

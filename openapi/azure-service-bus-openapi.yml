@@ -839,7 +839,7 @@ tags:
     description: Service Bus namespace operations
   - name: Queues
     description: Service Bus queue operations
-  - name: Topics
-    description: Service Bus topic operations
   - name: Subscriptions
     description: Service Bus topic subscription operations
+  - name: Topics
+    description: Service Bus topic operations
