@@ -10,19 +10,19 @@ info:
     name: Microsoft Azure
     url: https://azure.microsoft.com/en-us/products/service-bus
 servers:
-  - url: https://management.azure.com
-    description: Azure Resource Manager endpoint
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
 paths:
   /subscriptions/{subscriptionId}/providers/Microsoft.ServiceBus/namespaces:
     get:
       operationId: Namespaces_List
-      summary: Azure Service Bus List all namespaces
+      summary: Azure Service Bus List All Namespaces
       description: Gets all the available namespaces within the subscription.
       tags:
-        - Namespaces
+      - Namespaces
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -30,17 +30,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBNamespaceListResult'
+              examples:
+                NamespacesList200Example:
+                  summary: Default Namespaces_List 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: abc123
+                      name: Example Title
+                      type: example_value
+                      location: example_value
+                      tags: example_value
+                      sku: {}
+                      properties: {}
+                    nextLink: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces:
     get:
       operationId: Namespaces_ListByResourceGroup
-      summary: Azure Service Bus List namespaces by resource group
+      summary: Azure Service Bus List Namespaces by Resource Group
       description: Gets the available namespaces within a resource group.
       tags:
-        - Namespaces
+      - Namespaces
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -48,18 +65,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBNamespaceListResult'
+              examples:
+                NamespacesListbyresourcegroup200Example:
+                  summary: Default Namespaces_ListByResourceGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: abc123
+                      name: Example Title
+                      type: example_value
+                      location: example_value
+                      tags: example_value
+                      sku: {}
+                      properties: {}
+                    nextLink: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}
   : get:
       operationId: Namespaces_Get
-      summary: Azure Service Bus Get a namespace
+      summary: Azure Service Bus Get a Namespace
       description: Gets a description for the specified namespace.
       tags:
-        - Namespaces
+      - Namespaces
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -67,23 +101,74 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBNamespace'
+              examples:
+                NamespacesGet200Example:
+                  summary: Default Namespaces_Get 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    location: example_value
+                    tags: example_value
+                    sku:
+                      name: Basic
+                      tier: Basic
+                      capacity: 10
+                    properties:
+                      provisioningState: example_value
+                      status: example_value
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      serviceBusEndpoint: example_value
+                      metricId: '500123'
+                      zoneRedundant: true
+                      disableLocalAuth: true
+                      minimumTlsVersion: '1.0'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: Namespaces_CreateOrUpdate
-      summary: Azure Service Bus Create or update a namespace
+      summary: Azure Service Bus Create or Update a Namespace
       description: Creates or updates a Service Bus namespace.
       tags:
-        - Namespaces
+      - Namespaces
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - $ref: '#/components/parameters/ApiVersion'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SBNamespace'
+            examples:
+              NamespacesCreateorupdateRequestExample:
+                summary: Default Namespaces_CreateOrUpdate request
+                x-microcks-default: true
+                value:
+                  id: abc123
+                  name: Example Title
+                  type: example_value
+                  location: example_value
+                  tags: example_value
+                  sku:
+                    name: Basic
+                    tier: Basic
+                    capacity: 10
+                  properties:
+                    provisioningState: example_value
+                    status: example_value
+                    createdAt: '2026-01-15T10:30:00Z'
+                    updatedAt: '2026-01-15T10:30:00Z'
+                    serviceBusEndpoint: example_value
+                    metricId: '500123'
+                    zoneRedundant: true
+                    disableLocalAuth: true
+                    minimumTlsVersion: '1.0'
       responses:
         '200':
           description: Namespace updated
@@ -91,25 +176,76 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBNamespace'
+              examples:
+                NamespacesCreateorupdate200Example:
+                  summary: Default Namespaces_CreateOrUpdate 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    location: example_value
+                    tags: example_value
+                    sku:
+                      name: Basic
+                      tier: Basic
+                      capacity: 10
+                    properties:
+                      provisioningState: example_value
+                      status: example_value
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      serviceBusEndpoint: example_value
+                      metricId: '500123'
+                      zoneRedundant: true
+                      disableLocalAuth: true
+                      minimumTlsVersion: '1.0'
         '201':
           description: Namespace created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBNamespace'
+              examples:
+                NamespacesCreateorupdate201Example:
+                  summary: Default Namespaces_CreateOrUpdate 201 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    location: example_value
+                    tags: example_value
+                    sku:
+                      name: Basic
+                      tier: Basic
+                      capacity: 10
+                    properties:
+                      provisioningState: example_value
+                      status: example_value
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      serviceBusEndpoint: example_value
+                      metricId: '500123'
+                      zoneRedundant: true
+                      disableLocalAuth: true
+                      minimumTlsVersion: '1.0'
         '202':
           description: Namespace create/update request accepted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: Namespaces_Delete
-      summary: Azure Service Bus Delete a namespace
+      summary: Azure Service Bus Delete a Namespace
       description: Deletes an existing namespace.
       tags:
-        - Namespaces
+      - Namespaces
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Namespace deleted
@@ -117,26 +253,31 @@ paths:
           description: Namespace delete request accepted
         '204':
           description: No content
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues
   : get:
       operationId: Queues_ListByNamespace
-      summary: Azure Service Bus List queues
+      summary: Azure Service Bus List Queues
       description: Gets the queues within a namespace.
       tags:
-        - Queues
+      - Queues
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - $ref: '#/components/parameters/ApiVersion'
-        - name: $skip
-          in: query
-          schema:
-            type: integer
-        - name: $top
-          in: query
-          schema:
-            type: integer
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - $ref: '#/components/parameters/ApiVersion'
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+        example: 10
+      - name: $top
+        in: query
+        schema:
+          type: integer
+        example: 10
       responses:
         '200':
           description: Successful response
@@ -144,23 +285,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBQueueListResult'
+              examples:
+                QueuesListbynamespace200Example:
+                  summary: Default Queues_ListByNamespace 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: abc123
+                      name: Example Title
+                      type: example_value
+                      properties: {}
+                    nextLink: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}
   : get:
       operationId: Queues_Get
-      summary: Azure Service Bus Get a queue
+      summary: Azure Service Bus Get a Queue
       description: Returns a description for the specified queue.
       tags:
-        - Queues
+      - Queues
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: queueName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: queueName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -168,28 +324,100 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBQueue'
+              examples:
+                QueuesGet200Example:
+                  summary: Default Queues_Get 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      lockDuration: example_value
+                      maxSizeInMegabytes: 10
+                      requiresDuplicateDetection: true
+                      requiresSession: true
+                      defaultMessageTimeToLive: example_value
+                      deadLetteringOnMessageExpiration: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      maxDeliveryCount: 10
+                      status: Active
+                      enableBatchedOperations: true
+                      autoDeleteOnIdle: example_value
+                      enablePartitioning: true
+                      enableExpress: true
+                      forwardTo: example_value
+                      forwardDeadLetteredMessagesTo: example_value
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      messageCount: 10
+                      sizeInBytes: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: Queues_CreateOrUpdate
-      summary: Azure Service Bus Create or update a queue
+      summary: Azure Service Bus Create or Update a Queue
       description: Creates or updates a Service Bus queue.
       tags:
-        - Queues
+      - Queues
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: queueName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: queueName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SBQueue'
+            examples:
+              QueuesCreateorupdateRequestExample:
+                summary: Default Queues_CreateOrUpdate request
+                x-microcks-default: true
+                value:
+                  id: abc123
+                  name: Example Title
+                  type: example_value
+                  properties:
+                    lockDuration: example_value
+                    maxSizeInMegabytes: 10
+                    requiresDuplicateDetection: true
+                    requiresSession: true
+                    defaultMessageTimeToLive: example_value
+                    deadLetteringOnMessageExpiration: true
+                    duplicateDetectionHistoryTimeWindow: example_value
+                    maxDeliveryCount: 10
+                    status: Active
+                    enableBatchedOperations: true
+                    autoDeleteOnIdle: example_value
+                    enablePartitioning: true
+                    enableExpress: true
+                    forwardTo: example_value
+                    forwardDeadLetteredMessagesTo: example_value
+                    countDetails:
+                      activeMessageCount: 10
+                      deadLetterMessageCount: 10
+                      scheduledMessageCount: 10
+                      transferMessageCount: 10
+                      transferDeadLetterMessageCount: 10
+                    createdAt: '2026-01-15T10:30:00Z'
+                    updatedAt: '2026-01-15T10:30:00Z'
+                    messageCount: 10
+                    sizeInBytes: 10
       responses:
         '200':
           description: Queue updated or created
@@ -197,47 +425,90 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBQueue'
+              examples:
+                QueuesCreateorupdate200Example:
+                  summary: Default Queues_CreateOrUpdate 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      lockDuration: example_value
+                      maxSizeInMegabytes: 10
+                      requiresDuplicateDetection: true
+                      requiresSession: true
+                      defaultMessageTimeToLive: example_value
+                      deadLetteringOnMessageExpiration: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      maxDeliveryCount: 10
+                      status: Active
+                      enableBatchedOperations: true
+                      autoDeleteOnIdle: example_value
+                      enablePartitioning: true
+                      enableExpress: true
+                      forwardTo: example_value
+                      forwardDeadLetteredMessagesTo: example_value
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      messageCount: 10
+                      sizeInBytes: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: Queues_Delete
-      summary: Azure Service Bus Delete a queue
+      summary: Azure Service Bus Delete a Queue
       description: Deletes a queue from the specified namespace.
       tags:
-        - Queues
+      - Queues
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: queueName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: queueName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Queue deleted
         '204':
           description: No content
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics
   : get:
       operationId: Topics_ListByNamespace
-      summary: Azure Service Bus List topics
+      summary: Azure Service Bus List Topics
       description: Gets all the topics in a namespace.
       tags:
-        - Topics
+      - Topics
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - $ref: '#/components/parameters/ApiVersion'
-        - name: $skip
-          in: query
-          schema:
-            type: integer
-        - name: $top
-          in: query
-          schema:
-            type: integer
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - $ref: '#/components/parameters/ApiVersion'
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+        example: 10
+      - name: $top
+        in: query
+        schema:
+          type: integer
+        example: 10
       responses:
         '200':
           description: Successful response
@@ -245,23 +516,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBTopicListResult'
+              examples:
+                TopicsListbynamespace200Example:
+                  summary: Default Topics_ListByNamespace 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: abc123
+                      name: Example Title
+                      type: example_value
+                      properties: {}
+                    nextLink: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}
   : get:
       operationId: Topics_Get
-      summary: Azure Service Bus Get a topic
+      summary: Azure Service Bus Get a Topic
       description: Returns a description for the specified topic.
       tags:
-        - Topics
+      - Topics
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -269,28 +555,92 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBTopic'
+              examples:
+                TopicsGet200Example:
+                  summary: Default Topics_Get 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      defaultMessageTimeToLive: example_value
+                      maxSizeInMegabytes: 10
+                      maxMessageSizeInKilobytes: 10
+                      requiresDuplicateDetection: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      enableBatchedOperations: true
+                      status: Active
+                      supportOrdering: true
+                      autoDeleteOnIdle: example_value
+                      enablePartitioning: true
+                      enableExpress: true
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      subscriptionCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      sizeInBytes: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: Topics_CreateOrUpdate
-      summary: Azure Service Bus Create or update a topic
+      summary: Azure Service Bus Create or Update a Topic
       description: Creates a topic in the specified namespace.
       tags:
-        - Topics
+      - Topics
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SBTopic'
+            examples:
+              TopicsCreateorupdateRequestExample:
+                summary: Default Topics_CreateOrUpdate request
+                x-microcks-default: true
+                value:
+                  id: abc123
+                  name: Example Title
+                  type: example_value
+                  properties:
+                    defaultMessageTimeToLive: example_value
+                    maxSizeInMegabytes: 10
+                    maxMessageSizeInKilobytes: 10
+                    requiresDuplicateDetection: true
+                    duplicateDetectionHistoryTimeWindow: example_value
+                    enableBatchedOperations: true
+                    status: Active
+                    supportOrdering: true
+                    autoDeleteOnIdle: example_value
+                    enablePartitioning: true
+                    enableExpress: true
+                    countDetails:
+                      activeMessageCount: 10
+                      deadLetterMessageCount: 10
+                      scheduledMessageCount: 10
+                      transferMessageCount: 10
+                      transferDeadLetterMessageCount: 10
+                    subscriptionCount: 10
+                    createdAt: '2026-01-15T10:30:00Z'
+                    updatedAt: '2026-01-15T10:30:00Z'
+                    sizeInBytes: 10
       responses:
         '200':
           description: Topic updated or created
@@ -298,44 +648,82 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBTopic'
+              examples:
+                TopicsCreateorupdate200Example:
+                  summary: Default Topics_CreateOrUpdate 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      defaultMessageTimeToLive: example_value
+                      maxSizeInMegabytes: 10
+                      maxMessageSizeInKilobytes: 10
+                      requiresDuplicateDetection: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      enableBatchedOperations: true
+                      status: Active
+                      supportOrdering: true
+                      autoDeleteOnIdle: example_value
+                      enablePartitioning: true
+                      enableExpress: true
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      subscriptionCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      sizeInBytes: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: Topics_Delete
-      summary: Azure Service Bus Delete a topic
+      summary: Azure Service Bus Delete a Topic
       description: Deletes a topic from the specified namespace.
       tags:
-        - Topics
+      - Topics
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Topic deleted
         '204':
           description: No content
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions
   : get:
       operationId: Subscriptions_ListByTopic
-      summary: Azure Service Bus List subscriptions for a topic
+      summary: Azure Service Bus List Subscriptions for a Topic
       description: List all the subscriptions under a specified topic.
       tags:
-        - Subscriptions
+      - Subscriptions
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -343,28 +731,44 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBSubscriptionListResult'
+              examples:
+                SubscriptionsListbytopic200Example:
+                  summary: Default Subscriptions_ListByTopic 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: abc123
+                      name: Example Title
+                      type: example_value
+                      properties: {}
+                    nextLink: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions/{subscriptionName}
   : get:
       operationId: Subscriptions_Get
-      summary: Azure Service Bus Get a subscription
+      summary: Azure Service Bus Get a Subscription
       description: Returns a subscription description for the specified topic.
       tags:
-        - Subscriptions
+      - Subscriptions
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: subscriptionName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - name: subscriptionName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Successful response
@@ -372,33 +776,100 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBSubscription'
+              examples:
+                SubscriptionsGet200Example:
+                  summary: Default Subscriptions_Get 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      lockDuration: example_value
+                      requiresSession: true
+                      defaultMessageTimeToLive: example_value
+                      deadLetteringOnFilterEvaluationExceptions: true
+                      deadLetteringOnMessageExpiration: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      maxDeliveryCount: 10
+                      status: Active
+                      enableBatchedOperations: true
+                      autoDeleteOnIdle: example_value
+                      forwardTo: example_value
+                      forwardDeadLetteredMessagesTo: example_value
+                      isClientAffine: true
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      messageCount: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: Subscriptions_CreateOrUpdate
-      summary: Azure Service Bus Create or update a subscription
+      summary: Azure Service Bus Create or Update a Subscription
       description: Creates a topic subscription.
       tags:
-        - Subscriptions
+      - Subscriptions
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: subscriptionName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - name: subscriptionName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SBSubscription'
+            examples:
+              SubscriptionsCreateorupdateRequestExample:
+                summary: Default Subscriptions_CreateOrUpdate request
+                x-microcks-default: true
+                value:
+                  id: abc123
+                  name: Example Title
+                  type: example_value
+                  properties:
+                    lockDuration: example_value
+                    requiresSession: true
+                    defaultMessageTimeToLive: example_value
+                    deadLetteringOnFilterEvaluationExceptions: true
+                    deadLetteringOnMessageExpiration: true
+                    duplicateDetectionHistoryTimeWindow: example_value
+                    maxDeliveryCount: 10
+                    status: Active
+                    enableBatchedOperations: true
+                    autoDeleteOnIdle: example_value
+                    forwardTo: example_value
+                    forwardDeadLetteredMessagesTo: example_value
+                    isClientAffine: true
+                    countDetails:
+                      activeMessageCount: 10
+                      deadLetterMessageCount: 10
+                      scheduledMessageCount: 10
+                      transferMessageCount: 10
+                      transferDeadLetterMessageCount: 10
+                    createdAt: '2026-01-15T10:30:00Z'
+                    updatedAt: '2026-01-15T10:30:00Z'
+                    messageCount: 10
       responses:
         '200':
           description: Subscription updated or created
@@ -406,32 +877,71 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SBSubscription'
+              examples:
+                SubscriptionsCreateorupdate200Example:
+                  summary: Default Subscriptions_CreateOrUpdate 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      lockDuration: example_value
+                      requiresSession: true
+                      defaultMessageTimeToLive: example_value
+                      deadLetteringOnFilterEvaluationExceptions: true
+                      deadLetteringOnMessageExpiration: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      maxDeliveryCount: 10
+                      status: Active
+                      enableBatchedOperations: true
+                      autoDeleteOnIdle: example_value
+                      forwardTo: example_value
+                      forwardDeadLetteredMessagesTo: example_value
+                      isClientAffine: true
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      messageCount: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: Subscriptions_Delete
-      summary: Azure Service Bus Delete a subscription
+      summary: Azure Service Bus Delete a Subscription
       description: Deletes a subscription from the specified topic.
       tags:
-        - Subscriptions
+      - Subscriptions
       parameters:
-        - $ref: '#/components/parameters/SubscriptionId'
-        - $ref: '#/components/parameters/ResourceGroupName'
-        - $ref: '#/components/parameters/NamespaceName'
-        - name: topicName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: subscriptionName
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/ApiVersion'
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - name: subscriptionName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
       responses:
         '200':
           description: Subscription deleted
         '204':
           description: No content
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   parameters:
     SubscriptionId:
@@ -470,35 +980,41 @@ components:
         id:
           type: string
           readOnly: true
+          example: abc123
         name:
           type: string
           readOnly: true
+          example: Example Title
         type:
           type: string
           readOnly: true
+          example: example_value
         location:
           type: string
+          example: example_value
         tags:
           type: object
           additionalProperties:
             type: string
+          example: example_value
         sku:
           type: object
           properties:
             name:
               type: string
               enum:
-                - Basic
-                - Standard
-                - Premium
+              - Basic
+              - Standard
+              - Premium
             tier:
               type: string
               enum:
-                - Basic
-                - Standard
-                - Premium
+              - Basic
+              - Standard
+              - Premium
             capacity:
               type: integer
+          example: example_value
         properties:
           type: object
           properties:
@@ -529,9 +1045,10 @@ components:
             minimumTlsVersion:
               type: string
               enum:
-                - '1.0'
-                - '1.1'
-                - '1.2'
+              - '1.0'
+              - '1.1'
+              - '1.2'
+          example: example_value
     SBNamespaceListResult:
       type: object
       properties:
@@ -539,20 +1056,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SBNamespace'
+          example: []
         nextLink:
           type: string
+          example: example_value
     SBQueue:
       type: object
       properties:
         id:
           type: string
           readOnly: true
+          example: abc123
         name:
           type: string
           readOnly: true
+          example: Example Title
         type:
           type: string
           readOnly: true
+          example: example_value
         properties:
           type: object
           properties:
@@ -576,15 +1098,15 @@ components:
             status:
               type: string
               enum:
-                - Active
-                - Disabled
-                - Restoring
-                - SendDisabled
-                - ReceiveDisabled
-                - Creating
-                - Deleting
-                - Renaming
-                - Unknown
+              - Active
+              - Disabled
+              - Restoring
+              - SendDisabled
+              - ReceiveDisabled
+              - Creating
+              - Deleting
+              - Renaming
+              - Unknown
             enableBatchedOperations:
               type: boolean
             autoDeleteOnIdle:
@@ -632,6 +1154,7 @@ components:
               type: integer
               format: int64
               readOnly: true
+          example: example_value
     SBQueueListResult:
       type: object
       properties:
@@ -639,20 +1162,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SBQueue'
+          example: []
         nextLink:
           type: string
+          example: example_value
     SBTopic:
       type: object
       properties:
         id:
           type: string
           readOnly: true
+          example: abc123
         name:
           type: string
           readOnly: true
+          example: Example Title
         type:
           type: string
           readOnly: true
+          example: example_value
         properties:
           type: object
           properties:
@@ -672,15 +1200,15 @@ components:
             status:
               type: string
               enum:
-                - Active
-                - Disabled
-                - Restoring
-                - SendDisabled
-                - ReceiveDisabled
-                - Creating
-                - Deleting
-                - Renaming
-                - Unknown
+              - Active
+              - Disabled
+              - Restoring
+              - SendDisabled
+              - ReceiveDisabled
+              - Creating
+              - Deleting
+              - Renaming
+              - Unknown
             supportOrdering:
               type: boolean
             autoDeleteOnIdle:
@@ -723,6 +1251,7 @@ components:
               type: integer
               format: int64
               readOnly: true
+          example: example_value
     SBTopicListResult:
       type: object
       properties:
@@ -730,20 +1259,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SBTopic'
+          example: []
         nextLink:
           type: string
+          example: example_value
     SBSubscription:
       type: object
       properties:
         id:
           type: string
           readOnly: true
+          example: abc123
         name:
           type: string
           readOnly: true
+          example: Example Title
         type:
           type: string
           readOnly: true
+          example: example_value
         properties:
           type: object
           properties:
@@ -764,15 +1298,15 @@ components:
             status:
               type: string
               enum:
-                - Active
-                - Disabled
-                - Restoring
-                - SendDisabled
-                - ReceiveDisabled
-                - Creating
-                - Deleting
-                - Renaming
-                - Unknown
+              - Active
+              - Disabled
+              - Restoring
+              - SendDisabled
+              - ReceiveDisabled
+              - Creating
+              - Deleting
+              - Renaming
+              - Unknown
             enableBatchedOperations:
               type: boolean
             autoDeleteOnIdle:
@@ -814,6 +1348,7 @@ components:
               type: integer
               format: int64
               readOnly: true
+          example: example_value
     SBSubscriptionListResult:
       type: object
       properties:
@@ -821,8 +1356,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SBSubscription'
+          example: []
         nextLink:
           type: string
+          example: example_value
   securitySchemes:
     azure_auth:
       type: oauth2
@@ -832,14 +1369,14 @@ components:
           scopes:
             user_impersonation: Impersonate your user account
 security:
-  - azure_auth:
-      - user_impersonation
+- azure_auth:
+  - user_impersonation
 tags:
-  - name: Namespaces
-    description: Service Bus namespace operations
-  - name: Queues
-    description: Service Bus queue operations
-  - name: Subscriptions
-    description: Service Bus topic subscription operations
-  - name: Topics
-    description: Service Bus topic operations
+- name: Namespaces
+  description: Service Bus namespace operations
+- name: Queues
+  description: Service Bus queue operations
+- name: Subscriptions
+  description: Service Bus topic subscription operations
+- name: Topics
+  description: Service Bus topic operations

@@ -1,0 +1,11 @@
+name: azure-service-bus API Vocabulary
+provider: azure-service-bus
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 17
+schemas: 8
+tags:
+- Namespaces
+- Queues
+- Subscriptions
+- Topics

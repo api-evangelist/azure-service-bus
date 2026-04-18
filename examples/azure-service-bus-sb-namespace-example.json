@@ -1,0 +1,9 @@
+{
+  "id": "abc123",
+  "name": "Example Title",
+  "type": "example_value",
+  "location": "example_value",
+  "tags": "example_value",
+  "sku": "example_value",
+  "properties": "example_value"
+}
