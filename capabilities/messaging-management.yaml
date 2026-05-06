@@ -1,153 +1,315 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Azure Service Bus Messaging Management"
-  description: "Unified workflow for managing Azure Service Bus messaging infrastructure including namespaces, queues, topics, and subscriptions. Designed for cloud architects and platform engineers managing enterprise messaging."
+  label: Azure Service Bus Messaging Management
+  description: Unified workflow for managing Azure Service Bus messaging infrastructure including namespaces, queues, topics,
+    and subscriptions. Designed for cloud architects and platform engineers managing enterprise messaging.
   tags:
-    - Azure
-    - Service Bus
-    - Messaging
-    - Cloud Infrastructure
-  created: "2026-04-18"
-  modified: "2026-04-18"
-
+  - Azure
+  - Service Bus
+  - Messaging
+  - Cloud Infrastructure
+  created: '2026-04-18'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AZURE_BEARER_TOKEN: AZURE_BEARER_TOKEN
-
+- namespace: env
+  keys:
+    AZURE_BEARER_TOKEN: AZURE_BEARER_TOKEN
 capability:
   consumes:
-    - import: service-bus
-      location: ./shared/service-bus.yaml
-
+  - type: http
+    namespace: service-bus
+    baseUri: https://management.azure.com
+    description: Azure Service Bus Management API
+    authentication:
+      type: bearer
+      token: '{{AZURE_BEARER_TOKEN}}'
+    resources:
+    - name: namespaces
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.ServiceBus/namespaces
+      description: Service Bus namespaces
+      operations:
+      - name: list-namespaces
+        method: GET
+        description: List all namespaces in a subscription
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        - name: api-version
+          in: query
+          type: string
+          required: true
+          description: API version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: namespace-details
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}
+      description: Manage a specific namespace
+      operations:
+      - name: get-namespace
+        method: GET
+        description: Get namespace details
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        - name: resourceGroupName
+          in: path
+          type: string
+          required: true
+          description: Resource group name
+        - name: namespaceName
+          in: path
+          type: string
+          required: true
+          description: Namespace name
+        - name: api-version
+          in: query
+          type: string
+          required: true
+          description: API version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-or-update-namespace
+        method: PUT
+        description: Create or update a namespace
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        - name: resourceGroupName
+          in: path
+          type: string
+          required: true
+          description: Resource group name
+        - name: namespaceName
+          in: path
+          type: string
+          required: true
+          description: Namespace name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: delete-namespace
+        method: DELETE
+        description: Delete a namespace
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        - name: resourceGroupName
+          in: path
+          type: string
+          required: true
+          description: Resource group name
+        - name: namespaceName
+          in: path
+          type: string
+          required: true
+          description: Namespace name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues
+      description: Service Bus queues
+      operations:
+      - name: list-queues
+        method: GET
+        description: List queues in a namespace
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        - name: resourceGroupName
+          in: path
+          type: string
+          required: true
+          description: Resource group name
+        - name: namespaceName
+          in: path
+          type: string
+          required: true
+          description: Namespace name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: topics
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics
+      description: Service Bus topics
+      operations:
+      - name: list-topics
+        method: GET
+        description: List topics in a namespace
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        - name: resourceGroupName
+          in: path
+          type: string
+          required: true
+          description: Resource group name
+        - name: namespaceName
+          in: path
+          type: string
+          required: true
+          description: Namespace name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: messaging-api
-      description: "Unified REST API for Azure Service Bus messaging management."
-      resources:
-        - path: /v1/namespaces
-          name: namespaces
-          description: "Service Bus namespaces"
-          operations:
-            - method: GET
-              name: list-namespaces
-              description: "List all namespaces"
-              call: "service-bus.list-namespaces"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/namespaces/{namespaceName}
-          name: namespace-details
-          description: "Namespace details"
-          operations:
-            - method: GET
-              name: get-namespace
-              description: "Get namespace details"
-              call: "service-bus.get-namespace"
-              with:
-                namespaceName: "rest.namespaceName"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/queues
-          name: queues
-          description: "Message queues"
-          operations:
-            - method: GET
-              name: list-queues
-              description: "List queues"
-              call: "service-bus.list-queues"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/topics
-          name: topics
-          description: "Pub/sub topics"
-          operations:
-            - method: GET
-              name: list-topics
-              description: "List topics"
-              call: "service-bus.list-topics"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: messaging-mcp
-      transport: http
-      description: "MCP server for AI-assisted Azure Service Bus messaging management."
-      tools:
-        - name: list-namespaces
-          description: "List Azure Service Bus namespaces in a subscription"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "service-bus.list-namespaces"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-namespace
-          description: "Get details of a specific Service Bus namespace"
-          hints:
-            readOnly: true
-          call: "service-bus.get-namespace"
-          with:
-            subscriptionId: "tools.subscriptionId"
-            resourceGroupName: "tools.resourceGroupName"
-            namespaceName: "tools.namespaceName"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-or-update-namespace
-          description: "Create or update a Service Bus namespace"
-          hints:
-            readOnly: false
-            idempotent: true
-          call: "service-bus.create-or-update-namespace"
-          with:
-            subscriptionId: "tools.subscriptionId"
-            resourceGroupName: "tools.resourceGroupName"
-            namespaceName: "tools.namespaceName"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: delete-namespace
-          description: "Delete a Service Bus namespace"
-          hints:
-            destructive: true
-            idempotent: true
-          call: "service-bus.delete-namespace"
-          with:
-            subscriptionId: "tools.subscriptionId"
-            resourceGroupName: "tools.resourceGroupName"
-            namespaceName: "tools.namespaceName"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-queues
-          description: "List queues within a Service Bus namespace"
-          hints:
-            readOnly: true
-          call: "service-bus.list-queues"
-          with:
-            subscriptionId: "tools.subscriptionId"
-            resourceGroupName: "tools.resourceGroupName"
-            namespaceName: "tools.namespaceName"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-topics
-          description: "List topics within a Service Bus namespace"
-          hints:
-            readOnly: true
-          call: "service-bus.list-topics"
-          with:
-            subscriptionId: "tools.subscriptionId"
-            resourceGroupName: "tools.resourceGroupName"
-            namespaceName: "tools.namespaceName"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: messaging-api
+    description: Unified REST API for Azure Service Bus messaging management.
+    resources:
+    - path: /v1/namespaces
+      name: namespaces
+      description: Service Bus namespaces
+      operations:
+      - method: GET
+        name: list-namespaces
+        description: List all namespaces
+        call: service-bus.list-namespaces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/namespaces/{namespaceName}
+      name: namespace-details
+      description: Namespace details
+      operations:
+      - method: GET
+        name: get-namespace
+        description: Get namespace details
+        call: service-bus.get-namespace
+        with:
+          namespaceName: rest.namespaceName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues
+      name: queues
+      description: Message queues
+      operations:
+      - method: GET
+        name: list-queues
+        description: List queues
+        call: service-bus.list-queues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/topics
+      name: topics
+      description: Pub/sub topics
+      operations:
+      - method: GET
+        name: list-topics
+        description: List topics
+        call: service-bus.list-topics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: messaging-mcp
+    transport: http
+    description: MCP server for AI-assisted Azure Service Bus messaging management.
+    tools:
+    - name: list-namespaces
+      description: List Azure Service Bus namespaces in a subscription
+      hints:
+        readOnly: true
+        openWorld: true
+      call: service-bus.list-namespaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-namespace
+      description: Get details of a specific Service Bus namespace
+      hints:
+        readOnly: true
+      call: service-bus.get-namespace
+      with:
+        subscriptionId: tools.subscriptionId
+        resourceGroupName: tools.resourceGroupName
+        namespaceName: tools.namespaceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-or-update-namespace
+      description: Create or update a Service Bus namespace
+      hints:
+        readOnly: false
+        idempotent: true
+      call: service-bus.create-or-update-namespace
+      with:
+        subscriptionId: tools.subscriptionId
+        resourceGroupName: tools.resourceGroupName
+        namespaceName: tools.namespaceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-namespace
+      description: Delete a Service Bus namespace
+      hints:
+        destructive: true
+        idempotent: true
+      call: service-bus.delete-namespace
+      with:
+        subscriptionId: tools.subscriptionId
+        resourceGroupName: tools.resourceGroupName
+        namespaceName: tools.namespaceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-queues
+      description: List queues within a Service Bus namespace
+      hints:
+        readOnly: true
+      call: service-bus.list-queues
+      with:
+        subscriptionId: tools.subscriptionId
+        resourceGroupName: tools.resourceGroupName
+        namespaceName: tools.namespaceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-topics
+      description: List topics within a Service Bus namespace
+      hints:
+        readOnly: true
+      call: service-bus.list-topics
+      with:
+        subscriptionId: tools.subscriptionId
+        resourceGroupName: tools.resourceGroupName
+        namespaceName: tools.namespaceName
+      outputParameters:
+      - type: object
+        mapping: $.
