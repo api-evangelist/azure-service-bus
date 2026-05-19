@@ -1,0 +1,199 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure Service Bus Management API — Topics
+  description: 'Azure Service Bus Management API — Topics. 4 operations. Lead operation: Azure Service Bus List Topics. Self-contained
+    Naftiko capability covering one Azure Service Bus business surface.'
+  tags:
+  - Azure Service Bus
+  - Topics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_SERVICE_BUS_API_KEY: AZURE_SERVICE_BUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-service-bus-topics
+    baseUri: https://management.azure.com
+    description: Azure Service Bus Management API — Topics business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics
+      operations:
+      - name: topicslistbynamespace
+        method: GET
+        description: Azure Service Bus List Topics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $skip
+          in: query
+          type: integer
+        - name: $top
+          in: query
+          type: integer
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}
+      operations:
+      - name: topicsget
+        method: GET
+        description: Azure Service Bus Get a Topic
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+      - name: topicscreateorupdate
+        method: PUT
+        description: Azure Service Bus Create or Update a Topic
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: topicsdelete
+        method: DELETE
+        description: Azure Service Bus Delete a Topic
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AZURE_SERVICE_BUS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: azure-service-bus-topics-rest
+    port: 8080
+    description: REST adapter for Azure Service Bus Management API — Topics. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-servicebus/namespaces/{namespacename}/topics
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: topicslistbynamespace
+        description: Azure Service Bus List Topics
+        call: azure-service-bus-topics.topicslistbynamespace
+        with:
+          $skip: rest.$skip
+          $top: rest.$top
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-servicebus/namespaces/{namespacename}/topics/{topicname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: topicsget
+        description: Azure Service Bus Get a Topic
+        call: azure-service-bus-topics.topicsget
+        with:
+          topicName: rest.topicName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: topicscreateorupdate
+        description: Azure Service Bus Create or Update a Topic
+        call: azure-service-bus-topics.topicscreateorupdate
+        with:
+          topicName: rest.topicName
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: topicsdelete
+        description: Azure Service Bus Delete a Topic
+        call: azure-service-bus-topics.topicsdelete
+        with:
+          topicName: rest.topicName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-service-bus-topics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure Service Bus Management API — Topics. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: azure-service-bus-list-topics
+      description: Azure Service Bus List Topics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-service-bus-topics.topicslistbynamespace
+      with:
+        $skip: tools.$skip
+        $top: tools.$top
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-service-bus-get-topic
+      description: Azure Service Bus Get a Topic
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-service-bus-topics.topicsget
+      with:
+        topicName: tools.topicName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-service-bus-create-update
+      description: Azure Service Bus Create or Update a Topic
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-service-bus-topics.topicscreateorupdate
+      with:
+        topicName: tools.topicName
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-service-bus-delete-topic
+      description: Azure Service Bus Delete a Topic
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-service-bus-topics.topicsdelete
+      with:
+        topicName: tools.topicName
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,213 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure Service Bus Management API — Subscriptions
+  description: 'Azure Service Bus Management API — Subscriptions. 4 operations. Lead operation: Azure Service Bus List Subscriptions
+    for a Topic. Self-contained Naftiko capability covering one Azure Service Bus business surface.'
+  tags:
+  - Azure Service Bus
+  - Subscriptions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_SERVICE_BUS_API_KEY: AZURE_SERVICE_BUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-service-bus-subscriptions
+    baseUri: https://management.azure.com
+    description: Azure Service Bus Management API — Subscriptions business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions
+      operations:
+      - name: subscriptionslistbytopic
+        method: GET
+        description: Azure Service Bus List Subscriptions for a Topic
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/subscriptions/{subscriptionName}
+      operations:
+      - name: subscriptionsget
+        method: GET
+        description: Azure Service Bus Get a Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+        - name: subscriptionName
+          in: path
+          type: string
+          required: true
+      - name: subscriptionscreateorupdate
+        method: PUT
+        description: Azure Service Bus Create or Update a Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+        - name: subscriptionName
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: subscriptionsdelete
+        method: DELETE
+        description: Azure Service Bus Delete a Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: topicName
+          in: path
+          type: string
+          required: true
+        - name: subscriptionName
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AZURE_SERVICE_BUS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: azure-service-bus-subscriptions-rest
+    port: 8080
+    description: REST adapter for Azure Service Bus Management API — Subscriptions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-servicebus/namespaces/{namespacename}/topics/{topicname}/subscriptions
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: subscriptionslistbytopic
+        description: Azure Service Bus List Subscriptions for a Topic
+        call: azure-service-bus-subscriptions.subscriptionslistbytopic
+        with:
+          topicName: rest.topicName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-servicebus/namespaces/{namespacename}/topics/{topicname}/subscriptions/{subscriptionname}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: subscriptionsget
+        description: Azure Service Bus Get a Subscription
+        call: azure-service-bus-subscriptions.subscriptionsget
+        with:
+          topicName: rest.topicName
+          subscriptionName: rest.subscriptionName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: subscriptionscreateorupdate
+        description: Azure Service Bus Create or Update a Subscription
+        call: azure-service-bus-subscriptions.subscriptionscreateorupdate
+        with:
+          topicName: rest.topicName
+          subscriptionName: rest.subscriptionName
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: subscriptionsdelete
+        description: Azure Service Bus Delete a Subscription
+        call: azure-service-bus-subscriptions.subscriptionsdelete
+        with:
+          topicName: rest.topicName
+          subscriptionName: rest.subscriptionName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-service-bus-subscriptions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure Service Bus Management API — Subscriptions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: azure-service-bus-list-subscriptions
+      description: Azure Service Bus List Subscriptions for a Topic
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-service-bus-subscriptions.subscriptionslistbytopic
+      with:
+        topicName: tools.topicName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-service-bus-get-subscription
+      description: Azure Service Bus Get a Subscription
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-service-bus-subscriptions.subscriptionsget
+      with:
+        topicName: tools.topicName
+        subscriptionName: tools.subscriptionName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-service-bus-create-update
+      description: Azure Service Bus Create or Update a Subscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: azure-service-bus-subscriptions.subscriptionscreateorupdate
+      with:
+        topicName: tools.topicName
+        subscriptionName: tools.subscriptionName
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: azure-service-bus-delete-subscription
+      description: Azure Service Bus Delete a Subscription
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-service-bus-subscriptions.subscriptionsdelete
+      with:
+        topicName: tools.topicName
+        subscriptionName: tools.subscriptionName
+      outputParameters:
+      - type: object
+        mapping: $.
