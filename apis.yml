@@ -98,6 +98,8 @@ common:
     description: Build automated workflows that send and receive Service Bus messages with no-code connectors.
   - name: Azure Event Grid
     description: Route Service Bus events to other Azure services for real-time event processing and monitoring.
+- type: LLMsTxt
+  url: https://azure.microsoft.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
