@@ -49,6 +49,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 common:
+  - type: OAuthScopes
+    url: scopes/azure-service-bus-scopes.yml
   - type: Portal
     url: https://azure.microsoft.com/en-us/products/service-bus
   - type: Documentation
