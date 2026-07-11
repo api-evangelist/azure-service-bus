@@ -49,6 +49,12 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 common:
+  - type: VulnerabilityDisclosure
+    url: security/azure-service-bus-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/azure-service-bus-domain-security.yml
+  - type: Authentication
+    url: authentication/azure-service-bus-authentication.yml
   - type: OAuthScopes
     url: scopes/azure-service-bus-scopes.yml
   - type: Portal
