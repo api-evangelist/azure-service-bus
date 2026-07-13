@@ -1,0 +1,33 @@
+# azure-service-bus — AsyncAPI Spectral ruleset (strengthened)
+# Plain Spectral. Rules measured from this provider's own AsyncAPI event
+# conventions by strengthen_asyncapi.py, then self-validated against the spec.
+#
+# Provenance:
+#   - payload-property-casing: camel @ 81% (n=21)
+#   - operation-id-casing: camel @ 100% (n=4, v2)
+extends:
+  - spectral:asyncapi
+rules:
+  payload-property-casing:
+    description: Message payload properties should be camelCase (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: camel
+  operation-id-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.channels[*][publish,subscribe].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
+      function: truthy
