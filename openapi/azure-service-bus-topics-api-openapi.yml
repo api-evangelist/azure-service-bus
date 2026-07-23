@@ -1,0 +1,374 @@
+openapi: 3.1.0
+info:
+  title: Azure Service Bus Management Namespaces Topics API
+  description: The Azure Service Bus REST API provides operations for managing Service Bus resources including namespaces, queues, topics, subscriptions, and rules through the Azure Resource Manager.
+  version: '2021-11-01'
+  contact:
+    name: Microsoft Azure
+    url: https://azure.microsoft.com/en-us/products/service-bus
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: Topics
+  description: Service Bus topic operations
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics
+  : get:
+      operationId: Topics_ListByNamespace
+      summary: Azure Service Bus List Topics
+      description: Gets all the topics in a namespace.
+      tags:
+      - Topics
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - $ref: '#/components/parameters/ApiVersion'
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+        example: 10
+      - name: $top
+        in: query
+        schema:
+          type: integer
+        example: 10
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBTopicListResult'
+              examples:
+                TopicsListbynamespace200Example:
+                  summary: Default Topics_ListByNamespace 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: abc123
+                      name: Example Title
+                      type: example_value
+                      properties: {}
+                    nextLink: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}
+  : get:
+      operationId: Topics_Get
+      summary: Azure Service Bus Get a Topic
+      description: Returns a description for the specified topic.
+      tags:
+      - Topics
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBTopic'
+              examples:
+                TopicsGet200Example:
+                  summary: Default Topics_Get 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      defaultMessageTimeToLive: example_value
+                      maxSizeInMegabytes: 10
+                      maxMessageSizeInKilobytes: 10
+                      requiresDuplicateDetection: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      enableBatchedOperations: true
+                      status: Active
+                      supportOrdering: true
+                      autoDeleteOnIdle: example_value
+                      enablePartitioning: true
+                      enableExpress: true
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      subscriptionCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      sizeInBytes: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: Topics_CreateOrUpdate
+      summary: Azure Service Bus Create or Update a Topic
+      description: Creates a topic in the specified namespace.
+      tags:
+      - Topics
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SBTopic'
+            examples:
+              TopicsCreateorupdateRequestExample:
+                summary: Default Topics_CreateOrUpdate request
+                x-microcks-default: true
+                value:
+                  id: abc123
+                  name: Example Title
+                  type: example_value
+                  properties:
+                    defaultMessageTimeToLive: example_value
+                    maxSizeInMegabytes: 10
+                    maxMessageSizeInKilobytes: 10
+                    requiresDuplicateDetection: true
+                    duplicateDetectionHistoryTimeWindow: example_value
+                    enableBatchedOperations: true
+                    status: Active
+                    supportOrdering: true
+                    autoDeleteOnIdle: example_value
+                    enablePartitioning: true
+                    enableExpress: true
+                    countDetails:
+                      activeMessageCount: 10
+                      deadLetterMessageCount: 10
+                      scheduledMessageCount: 10
+                      transferMessageCount: 10
+                      transferDeadLetterMessageCount: 10
+                    subscriptionCount: 10
+                    createdAt: '2026-01-15T10:30:00Z'
+                    updatedAt: '2026-01-15T10:30:00Z'
+                    sizeInBytes: 10
+      responses:
+        '200':
+          description: Topic updated or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SBTopic'
+              examples:
+                TopicsCreateorupdate200Example:
+                  summary: Default Topics_CreateOrUpdate 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    type: example_value
+                    properties:
+                      defaultMessageTimeToLive: example_value
+                      maxSizeInMegabytes: 10
+                      maxMessageSizeInKilobytes: 10
+                      requiresDuplicateDetection: true
+                      duplicateDetectionHistoryTimeWindow: example_value
+                      enableBatchedOperations: true
+                      status: Active
+                      supportOrdering: true
+                      autoDeleteOnIdle: example_value
+                      enablePartitioning: true
+                      enableExpress: true
+                      countDetails:
+                        activeMessageCount: 10
+                        deadLetterMessageCount: 10
+                        scheduledMessageCount: 10
+                        transferMessageCount: 10
+                        transferDeadLetterMessageCount: 10
+                      subscriptionCount: 10
+                      createdAt: '2026-01-15T10:30:00Z'
+                      updatedAt: '2026-01-15T10:30:00Z'
+                      sizeInBytes: 10
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: Topics_Delete
+      summary: Azure Service Bus Delete a Topic
+      description: Deletes a topic from the specified namespace.
+      tags:
+      - Topics
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/NamespaceName'
+      - name: topicName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example_value
+      - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Topic deleted
+        '204':
+          description: No content
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    NamespaceName:
+      name: namespaceName
+      in: path
+      required: true
+      description: The namespace name.
+      schema:
+        type: string
+    ResourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: Name of the resource group.
+      schema:
+        type: string
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Client API version.
+      schema:
+        type: string
+        default: '2021-11-01'
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The Azure subscription ID.
+      schema:
+        type: string
+  schemas:
+    SBTopic:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: abc123
+        name:
+          type: string
+          readOnly: true
+          example: Example Title
+        type:
+          type: string
+          readOnly: true
+          example: example_value
+        properties:
+          type: object
+          properties:
+            defaultMessageTimeToLive:
+              type: string
+            maxSizeInMegabytes:
+              type: integer
+            maxMessageSizeInKilobytes:
+              type: integer
+              format: int64
+            requiresDuplicateDetection:
+              type: boolean
+            duplicateDetectionHistoryTimeWindow:
+              type: string
+            enableBatchedOperations:
+              type: boolean
+            status:
+              type: string
+              enum:
+              - Active
+              - Disabled
+              - Restoring
+              - SendDisabled
+              - ReceiveDisabled
+              - Creating
+              - Deleting
+              - Renaming
+              - Unknown
+            supportOrdering:
+              type: boolean
+            autoDeleteOnIdle:
+              type: string
+            enablePartitioning:
+              type: boolean
+            enableExpress:
+              type: boolean
+            countDetails:
+              type: object
+              readOnly: true
+              properties:
+                activeMessageCount:
+                  type: integer
+                  format: int64
+                deadLetterMessageCount:
+                  type: integer
+                  format: int64
+                scheduledMessageCount:
+                  type: integer
+                  format: int64
+                transferMessageCount:
+                  type: integer
+                  format: int64
+                transferDeadLetterMessageCount:
+                  type: integer
+                  format: int64
+            subscriptionCount:
+              type: integer
+              readOnly: true
+            createdAt:
+              type: string
+              format: date-time
+              readOnly: true
+            updatedAt:
+              type: string
+              format: date-time
+              readOnly: true
+            sizeInBytes:
+              type: integer
+              format: int64
+              readOnly: true
+          example: example_value
+    SBTopicListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBTopic'
+          example: []
+        nextLink:
+          type: string
+          example: example_value
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: Impersonate your user account
