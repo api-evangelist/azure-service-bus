@@ -4,9 +4,22 @@ description: >-
   Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics,
   providing reliable message delivery for decoupling applications and services in cloud and hybrid environments.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/azure-service-bus.png
 tags:
   - Azure
   - Cloud
@@ -20,35 +33,81 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: azure-service-bus:azure-service-bus
-    name: Azure Service Bus
-    description: >-
-      Azure Service Bus is a fully managed enterprise message broker supporting message queues and publish-subscribe
-      topics with features like dead-lettering, sessions, scheduled delivery, and transactions for building reliable
-      distributed applications.
-    humanURL: https://azure.microsoft.com/en-us/products/service-bus
-    tags:
-      - Azure
-      - Cloud
-      - Enterprise
-      - Message Broker
-      - Messaging
-      - Pub/Sub
-      - Queues
-    properties:
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/openapi/azure-service-bus-openapi.yml
-      - type: AsyncAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
-      - type: JSONLD
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+- aid: azure-service-bus:azure-service-bus-namespaces-api
+  name: Azure Service Bus Namespaces API
+  description: Service Bus namespace operations
+  humanURL: https://azure.microsoft.com/en-us/products/service-bus
+  tags:
+  - Namespaces
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-service-bus-namespaces-api-openapi.yml
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+- aid: azure-service-bus:azure-service-bus-queues-api
+  name: Azure Service Bus Queues API
+  description: Service Bus queue operations
+  humanURL: https://azure.microsoft.com/en-us/products/service-bus
+  tags:
+  - Queues
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-service-bus-queues-api-openapi.yml
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+- aid: azure-service-bus:azure-service-bus-subscriptions-api
+  name: Azure Service Bus Subscriptions API
+  description: Service Bus topic subscription operations
+  humanURL: https://azure.microsoft.com/en-us/products/service-bus
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-service-bus-subscriptions-api-openapi.yml
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+- aid: azure-service-bus:azure-service-bus-topics-api
+  name: Azure Service Bus Topics API
+  description: Service Bus topic operations
+  humanURL: https://azure.microsoft.com/en-us/products/service-bus
+  tags:
+  - Topics
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-service-bus-topics-api-openapi.yml
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/azure-service-bus/overview
   - type: AgenticAccess
     url: agentic-access/azure-service-bus-agentic-access.yml
   - type: VulnerabilityDisclosure
