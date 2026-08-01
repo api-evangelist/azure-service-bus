@@ -1,0 +1,20 @@
+{
+  "provider": "azure-service-bus",
+  "sources": [
+    "azure-service-bus-namespaces-api-openapi.yml",
+    "azure-service-bus-queues-api-openapi.yml",
+    "azure-service-bus-subscriptions-api-openapi.yml",
+    "azure-service-bus-topics-api-openapi.yml"
+  ],
+  "outputs": [
+    "azure-service-bus-namespaces-api-openapi.yml",
+    "azure-service-bus-queues-api-openapi.yml",
+    "azure-service-bus-subscriptions-api-openapi.yml",
+    "azure-service-bus-topics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

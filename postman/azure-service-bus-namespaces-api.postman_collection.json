@@ -1,0 +1,1047 @@
+{
+  "info": {
+    "_postman_id": "d41d7cbc-b3bf-4ed9-a5b6-8c0d153ea786",
+    "name": "Azure Service Bus Management Namespaces API",
+    "description": "The Azure Service Bus REST API provides operations for managing Service Bus resources including namespaces, queues, topics, subscriptions, and rules through the Azure Resource Manager.\n\nContact Support:\n Name: Microsoft Azure",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:53.000Z",
+    "updatedAt": "2026-07-28T01:09:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d41d7cbc-b3bf-4ed9-a5b6-8c0d153ea786"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "providers",
+              "item": [
+                {
+                  "name": "Microsoft.ServiceBus",
+                  "item": [
+                    {
+                      "name": "namespaces",
+                      "item": [
+                        {
+                          "name": "Azure Service Bus List All Namespaces",
+                          "id": "711d892b-92cc-45be-960d-80ffd956ff1f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.ServiceBus/namespaces?api-version=2021-11-01",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscriptions",
+                                ":subscriptionId",
+                                "providers",
+                                "Microsoft.ServiceBus",
+                                "namespaces"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Client API version.",
+                                  "key": "api-version",
+                                  "value": "2021-11-01"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "335d0767-378e-46d6-a709-8fde5e79a68a",
+                                  "key": "subscriptionId",
+                                  "value": "<string>",
+                                  "description": "(Required) The Azure subscription ID."
+                                }
+                              ]
+                            },
+                            "description": "Gets all the available namespaces within the subscription."
+                          },
+                          "response": [
+                            {
+                              "id": "34d62a26-b02b-4575-bdee-2c9d1a48b15d",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.ServiceBus/namespaces?api-version=2021-11-01",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.ServiceBus",
+                                    "namespaces"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Client API version.",
+                                      "key": "api-version",
+                                      "value": "2021-11-01"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"location\": \"<string>\",\n      \"tags\": {\n        \"consectetur_4e\": \"<string>\",\n        \"ad9_2\": \"<string>\"\n      },\n      \"sku\": {\n        \"name\": \"Standard\",\n        \"tier\": \"Basic\",\n        \"capacity\": \"<integer>\"\n      },\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"status\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"serviceBusEndpoint\": \"<string>\",\n        \"metricId\": \"<string>\",\n        \"zoneRedundant\": \"<boolean>\",\n        \"disableLocalAuth\": \"<boolean>\",\n        \"minimumTlsVersion\": \"1.0\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"location\": \"<string>\",\n      \"tags\": {\n        \"id_ab6\": \"<string>\",\n        \"id_eb\": \"<string>\",\n        \"adb1\": \"<string>\",\n        \"sitd\": \"<string>\"\n      },\n      \"sku\": {\n        \"name\": \"Standard\",\n        \"tier\": \"Standard\",\n        \"capacity\": \"<integer>\"\n      },\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"status\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"serviceBusEndpoint\": \"<string>\",\n        \"metricId\": \"<string>\",\n        \"zoneRedundant\": \"<boolean>\",\n        \"disableLocalAuth\": \"<boolean>\",\n        \"minimumTlsVersion\": \"1.1\"\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:09:53.000Z",
+                              "updatedAt": "2026-07-28T01:09:53.000Z",
+                              "uid": "35240-34d62a26-b02b-4575-bdee-2c9d1a48b15d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:09:53.000Z",
+                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                          "uid": "35240-711d892b-92cc-45be-960d-80ffd956ff1f"
+                        }
+                      ],
+                      "id": "107df4a1-ba22-4eac-a85b-512792e20e38",
+                      "createdAt": "2026-07-28T01:09:53.000Z",
+                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                      "uid": "35240-107df4a1-ba22-4eac-a85b-512792e20e38"
+                    }
+                  ],
+                  "id": "6f845784-7d0d-42b9-bec7-9ac209b0232e",
+                  "createdAt": "2026-07-28T01:09:53.000Z",
+                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                  "uid": "35240-6f845784-7d0d-42b9-bec7-9ac209b0232e"
+                }
+              ],
+              "id": "5ac7d3c2-3cac-4767-be50-68c014f0ef0c",
+              "createdAt": "2026-07-28T01:09:53.000Z",
+              "updatedAt": "2026-07-28T01:09:53.000Z",
+              "uid": "35240-5ac7d3c2-3cac-4767-be50-68c014f0ef0c"
+            },
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.ServiceBus",
+                          "item": [
+                            {
+                              "name": "namespaces",
+                              "item": [
+                                {
+                                  "name": "{namespaceName}",
+                                  "item": [
+                                    {
+                                      "name": "Azure Service Bus Get a Namespace",
+                                      "id": "c038c460-b5dd-4898-ad82-d605e979e7f8",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.ServiceBus",
+                                            "namespaces",
+                                            ":namespaceName"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2021-11-01"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "88295719-0335-4fa2-8ef1-aa045b2832ca",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The Azure subscription ID."
+                                            },
+                                            {
+                                              "id": "0aac0574-4ed5-4683-b414-c8ce223b7161",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) Name of the resource group."
+                                            },
+                                            {
+                                              "id": "10b37e49-e912-4d89-b34e-2503dc290314",
+                                              "key": "namespaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The namespace name."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Gets a description for the specified namespace."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "90a932a5-ab02-4a8d-b63b-bb5174acecf4",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-90a932a5-ab02-4a8d-b63b-bb5174acecf4"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:53.000Z",
+                                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                                      "uid": "35240-c038c460-b5dd-4898-ad82-d605e979e7f8"
+                                    },
+                                    {
+                                      "name": "Azure Service Bus Create or Update a Namespace",
+                                      "id": "a220dfa4-f4ca-48d5-9aec-a5c9cd27a8c3",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.ServiceBus",
+                                            "namespaces",
+                                            ":namespaceName"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2021-11-01"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "9f2657dd-ab80-4e38-ad4f-5effe228fa71",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The Azure subscription ID."
+                                            },
+                                            {
+                                              "id": "ea632bf5-edb6-4dd9-a8cc-8b10e4e8296c",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) Name of the resource group."
+                                            },
+                                            {
+                                              "id": "b39ffa55-3985-4a11-9457-28f0d23a1610",
+                                              "key": "namespaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The namespace name."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Creates or updates a Service Bus namespace."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "25841320-a7e9-4dde-9389-e1ebc039455a",
+                                          "name": "Namespace updated",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-25841320-a7e9-4dde-9389-e1ebc039455a"
+                                        },
+                                        {
+                                          "id": "3aba0466-9db5-412c-8de0-0f998a9aead0",
+                                          "name": "Namespace created",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Created",
+                                          "code": 201,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-3aba0466-9db5-412c-8de0-0f998a9aead0"
+                                        },
+                                        {
+                                          "id": "98a7ada3-9d1b-4b1d-aa57-2990b9644d56",
+                                          "name": "Namespace create/update request accepted",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"tags\": {\n    \"nostrud24e\": \"<string>\"\n  },\n  \"sku\": {\n    \"name\": \"Basic\",\n    \"tier\": \"Basic\",\n    \"capacity\": \"<integer>\"\n  },\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"status\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"serviceBusEndpoint\": \"<string>\",\n    \"metricId\": \"<string>\",\n    \"zoneRedundant\": \"<boolean>\",\n    \"disableLocalAuth\": \"<boolean>\",\n    \"minimumTlsVersion\": \"1.2\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Accepted",
+                                          "code": 202,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-98a7ada3-9d1b-4b1d-aa57-2990b9644d56"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:53.000Z",
+                                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                                      "uid": "35240-a220dfa4-f4ca-48d5-9aec-a5c9cd27a8c3"
+                                    },
+                                    {
+                                      "name": "Azure Service Bus Delete a Namespace",
+                                      "id": "e45f7d52-39b6-495b-a66a-a0d352a6c915",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.ServiceBus",
+                                            "namespaces",
+                                            ":namespaceName"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2021-11-01"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "b5549e8c-d146-4acf-b4e4-83092aab950a",
+                                              "key": "subscriptionId",
+                                              "value": "<string>",
+                                              "description": "(Required) The Azure subscription ID."
+                                            },
+                                            {
+                                              "id": "74b6a743-d33a-4b7b-9333-e1c9e74ab7e2",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) Name of the resource group."
+                                            },
+                                            {
+                                              "id": "e4d025c7-7250-4c59-b7cf-ea446b7c3dd0",
+                                              "key": "namespaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The namespace name."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Deletes an existing namespace."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "87889cae-2dc5-42d2-badb-16b3a5990b8f",
+                                          "name": "Namespace deleted",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-87889cae-2dc5-42d2-badb-16b3a5990b8f"
+                                        },
+                                        {
+                                          "id": "e488477f-e0d2-44a6-89a2-d6d95e3ed0de",
+                                          "name": "Namespace delete request accepted",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Accepted",
+                                          "code": 202,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-e488477f-e0d2-44a6-89a2-d6d95e3ed0de"
+                                        },
+                                        {
+                                          "id": "ade5e86f-30f5-4a88-b0cc-e15975e9d950",
+                                          "name": "No content",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName?api-version=2021-11-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "namespaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "No Content",
+                                          "code": 204,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-ade5e86f-30f5-4a88-b0cc-e15975e9d950"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:53.000Z",
+                                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                                      "uid": "35240-e45f7d52-39b6-495b-a66a-a0d352a6c915"
+                                    }
+                                  ],
+                                  "id": "1301b40f-dda3-4eb3-a9f9-bbfd75fd8384",
+                                  "createdAt": "2026-07-28T01:09:53.000Z",
+                                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                                  "uid": "35240-1301b40f-dda3-4eb3-a9f9-bbfd75fd8384"
+                                },
+                                {
+                                  "name": "Azure Service Bus List Namespaces by Resource Group",
+                                  "id": "36d4b260-8dd6-4b77-8c22-99de69f0f188",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces?api-version=2021-11-01",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "subscriptions",
+                                        ":subscriptionId",
+                                        "resourceGroups",
+                                        ":resourceGroupName",
+                                        "providers",
+                                        "Microsoft.ServiceBus",
+                                        "namespaces"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) Client API version.",
+                                          "key": "api-version",
+                                          "value": "2021-11-01"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "2bacbbb3-a8b1-4351-b200-eca95f679d6e",
+                                          "key": "subscriptionId",
+                                          "value": "<string>",
+                                          "description": "(Required) The Azure subscription ID."
+                                        },
+                                        {
+                                          "id": "2980b9ea-288c-4e5e-b7d9-69dbc5ff9c80",
+                                          "key": "resourceGroupName",
+                                          "value": "<string>",
+                                          "description": "(Required) Name of the resource group."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gets the available namespaces within a resource group."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "8d436933-f690-49a6-a624-ca0a267fb644",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces?api-version=2021-11-01",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.ServiceBus",
+                                            "namespaces"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) Client API version.",
+                                              "key": "api-version",
+                                              "value": "2021-11-01"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "key": "resourceGroupName"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"location\": \"<string>\",\n      \"tags\": {\n        \"consectetur_4e\": \"<string>\",\n        \"ad9_2\": \"<string>\"\n      },\n      \"sku\": {\n        \"name\": \"Standard\",\n        \"tier\": \"Basic\",\n        \"capacity\": \"<integer>\"\n      },\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"status\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"serviceBusEndpoint\": \"<string>\",\n        \"metricId\": \"<string>\",\n        \"zoneRedundant\": \"<boolean>\",\n        \"disableLocalAuth\": \"<boolean>\",\n        \"minimumTlsVersion\": \"1.0\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"location\": \"<string>\",\n      \"tags\": {\n        \"id_ab6\": \"<string>\",\n        \"id_eb\": \"<string>\",\n        \"adb1\": \"<string>\",\n        \"sitd\": \"<string>\"\n      },\n      \"sku\": {\n        \"name\": \"Standard\",\n        \"tier\": \"Standard\",\n        \"capacity\": \"<integer>\"\n      },\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"status\": \"<string>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"serviceBusEndpoint\": \"<string>\",\n        \"metricId\": \"<string>\",\n        \"zoneRedundant\": \"<boolean>\",\n        \"disableLocalAuth\": \"<boolean>\",\n        \"minimumTlsVersion\": \"1.1\"\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:09:53.000Z",
+                                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                                      "uid": "35240-8d436933-f690-49a6-a624-ca0a267fb644"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:09:53.000Z",
+                                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                                  "uid": "35240-36d4b260-8dd6-4b77-8c22-99de69f0f188"
+                                }
+                              ],
+                              "id": "7c8b6000-8eba-49f9-9552-fa0d4e2239a0",
+                              "createdAt": "2026-07-28T01:09:53.000Z",
+                              "updatedAt": "2026-07-28T01:09:53.000Z",
+                              "uid": "35240-7c8b6000-8eba-49f9-9552-fa0d4e2239a0"
+                            }
+                          ],
+                          "id": "ba8124b6-8ac5-4fdf-8f9e-0df0c834fad8",
+                          "createdAt": "2026-07-28T01:09:53.000Z",
+                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                          "uid": "35240-ba8124b6-8ac5-4fdf-8f9e-0df0c834fad8"
+                        }
+                      ],
+                      "id": "e30c85d9-b4e9-4804-9f2d-0ec0c203d313",
+                      "createdAt": "2026-07-28T01:09:53.000Z",
+                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                      "uid": "35240-e30c85d9-b4e9-4804-9f2d-0ec0c203d313"
+                    }
+                  ],
+                  "id": "27418123-fbb8-4d47-ab4c-4b3706e5472d",
+                  "createdAt": "2026-07-28T01:09:53.000Z",
+                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                  "uid": "35240-27418123-fbb8-4d47-ab4c-4b3706e5472d"
+                }
+              ],
+              "id": "b341c8bb-eb2f-4b9c-b722-f306c3a0c213",
+              "createdAt": "2026-07-28T01:09:53.000Z",
+              "updatedAt": "2026-07-28T01:09:53.000Z",
+              "uid": "35240-b341c8bb-eb2f-4b9c-b722-f306c3a0c213"
+            }
+          ],
+          "id": "798f71e4-4c0e-4b93-81e9-e13bd1d85a7a",
+          "createdAt": "2026-07-28T01:09:53.000Z",
+          "updatedAt": "2026-07-28T01:09:53.000Z",
+          "uid": "35240-798f71e4-4c0e-4b93-81e9-e13bd1d85a7a"
+        }
+      ],
+      "id": "1d165318-b47e-477b-9763-90daedcbf1b1",
+      "createdAt": "2026-07-28T01:09:53.000Z",
+      "updatedAt": "2026-07-28T01:09:53.000Z",
+      "uid": "35240-1d165318-b47e-477b-9763-90daedcbf1b1"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}

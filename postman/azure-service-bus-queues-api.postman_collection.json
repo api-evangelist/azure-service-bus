@@ -1,0 +1,792 @@
+{
+  "info": {
+    "_postman_id": "9f2a4200-1074-4065-84bf-fe11335fa34c",
+    "name": "Azure Service Bus Management Namespaces Queues API",
+    "description": "The Azure Service Bus REST API provides operations for managing Service Bus resources including namespaces, queues, topics, subscriptions, and rules through the Azure Resource Manager.\n\nContact Support:\n Name: Microsoft Azure",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:55.000Z",
+    "updatedAt": "2026-07-28T01:09:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9f2a4200-1074-4065-84bf-fe11335fa34c"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.ServiceBus",
+                          "item": [
+                            {
+                              "name": "namespaces",
+                              "item": [
+                                {
+                                  "name": "{namespaceName}",
+                                  "item": [
+                                    {
+                                      "name": "queues",
+                                      "item": [
+                                        {
+                                          "name": "{queueName}",
+                                          "item": [
+                                            {
+                                              "name": "Azure Service Bus Get a Queue",
+                                              "id": "1b43043e-93f9-4b9c-88b7-99c58e4534c0",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.ServiceBus",
+                                                    "namespaces",
+                                                    ":namespaceName",
+                                                    "queues",
+                                                    ":queueName"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2021-11-01"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "de850da8-f9a1-4e31-80da-a8a5a9da09ed",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The Azure subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "96a9e101-298c-4f4d-aa8f-3b71949f3679",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) Name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "38cf2ebe-c2fa-4b21-8aa5-2b1f8424b8ba",
+                                                      "key": "namespaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The namespace name."
+                                                    },
+                                                    {
+                                                      "id": "a28ef0d6-4468-41d7-b8d3-b332c155ef41",
+                                                      "key": "queueName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Returns a description for the specified queue."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "7794fcbb-29f8-4a70-a0cf-d1b058bd1a28",
+                                                  "name": "Successful response",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.ServiceBus",
+                                                        "namespaces",
+                                                        ":namespaceName",
+                                                        "queues",
+                                                        ":queueName"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2021-11-01"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "namespaceName"
+                                                        },
+                                                        {
+                                                          "key": "queueName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": {\n    \"lockDuration\": \"<string>\",\n    \"maxSizeInMegabytes\": \"<integer>\",\n    \"requiresDuplicateDetection\": \"<boolean>\",\n    \"requiresSession\": \"<boolean>\",\n    \"defaultMessageTimeToLive\": \"<string>\",\n    \"deadLetteringOnMessageExpiration\": \"<boolean>\",\n    \"duplicateDetectionHistoryTimeWindow\": \"<string>\",\n    \"maxDeliveryCount\": \"<integer>\",\n    \"status\": \"Restoring\",\n    \"enableBatchedOperations\": \"<boolean>\",\n    \"autoDeleteOnIdle\": \"<string>\",\n    \"enablePartitioning\": \"<boolean>\",\n    \"enableExpress\": \"<boolean>\",\n    \"forwardTo\": \"<string>\",\n    \"forwardDeadLetteredMessagesTo\": \"<string>\",\n    \"countDetails\": {\n      \"activeMessageCount\": \"<long>\",\n      \"deadLetterMessageCount\": \"<long>\",\n      \"scheduledMessageCount\": \"<long>\",\n      \"transferMessageCount\": \"<long>\",\n      \"transferDeadLetterMessageCount\": \"<long>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"messageCount\": \"<long>\",\n    \"sizeInBytes\": \"<long>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:56.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                                                  "uid": "35240-7794fcbb-29f8-4a70-a0cf-d1b058bd1a28"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:56.000Z",
+                                              "updatedAt": "2026-07-28T01:09:56.000Z",
+                                              "uid": "35240-1b43043e-93f9-4b9c-88b7-99c58e4534c0"
+                                            },
+                                            {
+                                              "name": "Azure Service Bus Create or Update a Queue",
+                                              "id": "b419e0ba-5dbd-45c9-8945-1560648d42ec",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PUT",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": {\n    \"lockDuration\": \"<string>\",\n    \"maxSizeInMegabytes\": \"<integer>\",\n    \"requiresDuplicateDetection\": \"<boolean>\",\n    \"requiresSession\": \"<boolean>\",\n    \"defaultMessageTimeToLive\": \"<string>\",\n    \"deadLetteringOnMessageExpiration\": \"<boolean>\",\n    \"duplicateDetectionHistoryTimeWindow\": \"<string>\",\n    \"maxDeliveryCount\": \"<integer>\",\n    \"status\": \"Restoring\",\n    \"enableBatchedOperations\": \"<boolean>\",\n    \"autoDeleteOnIdle\": \"<string>\",\n    \"enablePartitioning\": \"<boolean>\",\n    \"enableExpress\": \"<boolean>\",\n    \"forwardTo\": \"<string>\",\n    \"forwardDeadLetteredMessagesTo\": \"<string>\",\n    \"countDetails\": {\n      \"activeMessageCount\": \"<long>\",\n      \"deadLetterMessageCount\": \"<long>\",\n      \"scheduledMessageCount\": \"<long>\",\n      \"transferMessageCount\": \"<long>\",\n      \"transferDeadLetterMessageCount\": \"<long>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"messageCount\": \"<long>\",\n    \"sizeInBytes\": \"<long>\"\n  }\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.ServiceBus",
+                                                    "namespaces",
+                                                    ":namespaceName",
+                                                    "queues",
+                                                    ":queueName"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2021-11-01"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "54780234-0502-488b-97f6-752e8cb7ab6b",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The Azure subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "9b84d235-1488-4d7f-a6c3-d26b0a9c9ac5",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) Name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "6ba0cacf-1222-4991-95d6-5d32d3b962c1",
+                                                      "key": "namespaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The namespace name."
+                                                    },
+                                                    {
+                                                      "id": "720248b5-23bc-4343-9dd6-96aac00d1506",
+                                                      "key": "queueName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Creates or updates a Service Bus queue."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "fee6fec7-428d-43e3-aa57-5bb6f7eb1716",
+                                                  "name": "Queue updated or created",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": {\n    \"lockDuration\": \"<string>\",\n    \"maxSizeInMegabytes\": \"<integer>\",\n    \"requiresDuplicateDetection\": \"<boolean>\",\n    \"requiresSession\": \"<boolean>\",\n    \"defaultMessageTimeToLive\": \"<string>\",\n    \"deadLetteringOnMessageExpiration\": \"<boolean>\",\n    \"duplicateDetectionHistoryTimeWindow\": \"<string>\",\n    \"maxDeliveryCount\": \"<integer>\",\n    \"status\": \"Restoring\",\n    \"enableBatchedOperations\": \"<boolean>\",\n    \"autoDeleteOnIdle\": \"<string>\",\n    \"enablePartitioning\": \"<boolean>\",\n    \"enableExpress\": \"<boolean>\",\n    \"forwardTo\": \"<string>\",\n    \"forwardDeadLetteredMessagesTo\": \"<string>\",\n    \"countDetails\": {\n      \"activeMessageCount\": \"<long>\",\n      \"deadLetterMessageCount\": \"<long>\",\n      \"scheduledMessageCount\": \"<long>\",\n      \"transferMessageCount\": \"<long>\",\n      \"transferDeadLetterMessageCount\": \"<long>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"messageCount\": \"<long>\",\n    \"sizeInBytes\": \"<long>\"\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.ServiceBus",
+                                                        "namespaces",
+                                                        ":namespaceName",
+                                                        "queues",
+                                                        ":queueName"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2021-11-01"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "namespaceName"
+                                                        },
+                                                        {
+                                                          "key": "queueName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": {\n    \"lockDuration\": \"<string>\",\n    \"maxSizeInMegabytes\": \"<integer>\",\n    \"requiresDuplicateDetection\": \"<boolean>\",\n    \"requiresSession\": \"<boolean>\",\n    \"defaultMessageTimeToLive\": \"<string>\",\n    \"deadLetteringOnMessageExpiration\": \"<boolean>\",\n    \"duplicateDetectionHistoryTimeWindow\": \"<string>\",\n    \"maxDeliveryCount\": \"<integer>\",\n    \"status\": \"Restoring\",\n    \"enableBatchedOperations\": \"<boolean>\",\n    \"autoDeleteOnIdle\": \"<string>\",\n    \"enablePartitioning\": \"<boolean>\",\n    \"enableExpress\": \"<boolean>\",\n    \"forwardTo\": \"<string>\",\n    \"forwardDeadLetteredMessagesTo\": \"<string>\",\n    \"countDetails\": {\n      \"activeMessageCount\": \"<long>\",\n      \"deadLetterMessageCount\": \"<long>\",\n      \"scheduledMessageCount\": \"<long>\",\n      \"transferMessageCount\": \"<long>\",\n      \"transferDeadLetterMessageCount\": \"<long>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"messageCount\": \"<long>\",\n    \"sizeInBytes\": \"<long>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:56.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                                                  "uid": "35240-fee6fec7-428d-43e3-aa57-5bb6f7eb1716"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:56.000Z",
+                                              "updatedAt": "2026-07-28T01:09:56.000Z",
+                                              "uid": "35240-b419e0ba-5dbd-45c9-8945-1560648d42ec"
+                                            },
+                                            {
+                                              "name": "Azure Service Bus Delete a Queue",
+                                              "id": "54929ecf-bb39-4098-80b7-8f86b0c34dcc",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "DELETE",
+                                                "header": [],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.ServiceBus",
+                                                    "namespaces",
+                                                    ":namespaceName",
+                                                    "queues",
+                                                    ":queueName"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2021-11-01"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "e507a3fe-dedf-4d5a-8558-d5434f29fbd5",
+                                                      "key": "subscriptionId",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The Azure subscription ID."
+                                                    },
+                                                    {
+                                                      "id": "ff0510e7-6ea9-42da-97d3-c6c95cfa2e29",
+                                                      "key": "resourceGroupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) Name of the resource group."
+                                                    },
+                                                    {
+                                                      "id": "bf7ac057-99c8-46ec-a340-465b4a5d2146",
+                                                      "key": "namespaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The namespace name."
+                                                    },
+                                                    {
+                                                      "id": "86fd4c4c-d98b-4acf-b720-93ea845fd95e",
+                                                      "key": "queueName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) "
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Deletes a queue from the specified namespace."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "630769c9-c58b-42a9-9646-551396a6d307",
+                                                  "name": "Queue deleted",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.ServiceBus",
+                                                        "namespaces",
+                                                        ":namespaceName",
+                                                        "queues",
+                                                        ":queueName"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2021-11-01"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "namespaceName"
+                                                        },
+                                                        {
+                                                          "key": "queueName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:56.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                                                  "uid": "35240-630769c9-c58b-42a9-9646-551396a6d307"
+                                                },
+                                                {
+                                                  "id": "2ef2c8a3-03e3-4677-b966-40ea31eb19f0",
+                                                  "name": "No content",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues/:queueName?api-version=2021-11-01",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.ServiceBus",
+                                                        "namespaces",
+                                                        ":namespaceName",
+                                                        "queues",
+                                                        ":queueName"
+                                                      ],
+                                                      "query": [
+                                                        {
+                                                          "description": "(Required) Client API version.",
+                                                          "key": "api-version",
+                                                          "value": "2021-11-01"
+                                                        }
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "namespaceName"
+                                                        },
+                                                        {
+                                                          "key": "queueName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "No Content",
+                                                  "code": 204,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:56.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                                                  "uid": "35240-2ef2c8a3-03e3-4677-b966-40ea31eb19f0"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:56.000Z",
+                                              "updatedAt": "2026-07-28T01:09:56.000Z",
+                                              "uid": "35240-54929ecf-bb39-4098-80b7-8f86b0c34dcc"
+                                            }
+                                          ],
+                                          "id": "e9c975dd-ec20-4dd8-bad0-74dc43c5795c",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-e9c975dd-ec20-4dd8-bad0-74dc43c5795c"
+                                        },
+                                        {
+                                          "name": "Azure Service Bus List Queues",
+                                          "id": "d202e01a-8862-4797-a126-eb187b49061c",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues?api-version=2021-11-01&$skip=<integer>&$top=<integer>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.ServiceBus",
+                                                "namespaces",
+                                                ":namespaceName",
+                                                "queues"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) Client API version.",
+                                                  "key": "api-version",
+                                                  "value": "2021-11-01"
+                                                },
+                                                {
+                                                  "key": "$skip",
+                                                  "value": "<integer>"
+                                                },
+                                                {
+                                                  "key": "$top",
+                                                  "value": "<integer>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "cd51fc8f-85bb-4c6a-ab1a-36936d3bebf8",
+                                                  "key": "subscriptionId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The Azure subscription ID."
+                                                },
+                                                {
+                                                  "id": "8c2882d2-77f2-4b82-a8ae-1ba09b32f2fe",
+                                                  "key": "resourceGroupName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) Name of the resource group."
+                                                },
+                                                {
+                                                  "id": "61032d6f-3874-44fb-acc1-15eadc9fc9bb",
+                                                  "key": "namespaceName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The namespace name."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Gets the queues within a namespace."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "db56e3aa-ef05-413f-aa0e-eb2500303296",
+                                              "name": "Successful response",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ServiceBus/namespaces/:namespaceName/queues?api-version=2021-11-01&$skip=<integer>&$top=<integer>",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.ServiceBus",
+                                                    "namespaces",
+                                                    ":namespaceName",
+                                                    "queues"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) Client API version.",
+                                                      "key": "api-version",
+                                                      "value": "2021-11-01"
+                                                    },
+                                                    {
+                                                      "key": "$skip",
+                                                      "value": "<integer>"
+                                                    },
+                                                    {
+                                                      "key": "$top",
+                                                      "value": "<integer>"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "namespaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"properties\": {\n        \"lockDuration\": \"<string>\",\n        \"maxSizeInMegabytes\": \"<integer>\",\n        \"requiresDuplicateDetection\": \"<boolean>\",\n        \"requiresSession\": \"<boolean>\",\n        \"defaultMessageTimeToLive\": \"<string>\",\n        \"deadLetteringOnMessageExpiration\": \"<boolean>\",\n        \"duplicateDetectionHistoryTimeWindow\": \"<string>\",\n        \"maxDeliveryCount\": \"<integer>\",\n        \"status\": \"Active\",\n        \"enableBatchedOperations\": \"<boolean>\",\n        \"autoDeleteOnIdle\": \"<string>\",\n        \"enablePartitioning\": \"<boolean>\",\n        \"enableExpress\": \"<boolean>\",\n        \"forwardTo\": \"<string>\",\n        \"forwardDeadLetteredMessagesTo\": \"<string>\",\n        \"countDetails\": {\n          \"activeMessageCount\": \"<long>\",\n          \"deadLetterMessageCount\": \"<long>\",\n          \"scheduledMessageCount\": \"<long>\",\n          \"transferMessageCount\": \"<long>\",\n          \"transferDeadLetterMessageCount\": \"<long>\"\n        },\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"messageCount\": \"<long>\",\n        \"sizeInBytes\": \"<long>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"properties\": {\n        \"lockDuration\": \"<string>\",\n        \"maxSizeInMegabytes\": \"<integer>\",\n        \"requiresDuplicateDetection\": \"<boolean>\",\n        \"requiresSession\": \"<boolean>\",\n        \"defaultMessageTimeToLive\": \"<string>\",\n        \"deadLetteringOnMessageExpiration\": \"<boolean>\",\n        \"duplicateDetectionHistoryTimeWindow\": \"<string>\",\n        \"maxDeliveryCount\": \"<integer>\",\n        \"status\": \"Deleting\",\n        \"enableBatchedOperations\": \"<boolean>\",\n        \"autoDeleteOnIdle\": \"<string>\",\n        \"enablePartitioning\": \"<boolean>\",\n        \"enableExpress\": \"<boolean>\",\n        \"forwardTo\": \"<string>\",\n        \"forwardDeadLetteredMessagesTo\": \"<string>\",\n        \"countDetails\": {\n          \"activeMessageCount\": \"<long>\",\n          \"deadLetterMessageCount\": \"<long>\",\n          \"scheduledMessageCount\": \"<long>\",\n          \"transferMessageCount\": \"<long>\",\n          \"transferDeadLetterMessageCount\": \"<long>\"\n        },\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"messageCount\": \"<long>\",\n        \"sizeInBytes\": \"<long>\"\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                                              "createdAt": "2026-07-28T01:09:56.000Z",
+                                              "updatedAt": "2026-07-28T01:09:56.000Z",
+                                              "uid": "35240-db56e3aa-ef05-413f-aa0e-eb2500303296"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-d202e01a-8862-4797-a126-eb187b49061c"
+                                        }
+                                      ],
+                                      "id": "eb605fe9-d8d5-429f-bdd0-e78c8cd6e64a",
+                                      "createdAt": "2026-07-28T01:09:56.000Z",
+                                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                                      "uid": "35240-eb605fe9-d8d5-429f-bdd0-e78c8cd6e64a"
+                                    }
+                                  ],
+                                  "id": "f3f09e6d-02eb-4692-83c8-154579e9687a",
+                                  "createdAt": "2026-07-28T01:09:56.000Z",
+                                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                                  "uid": "35240-f3f09e6d-02eb-4692-83c8-154579e9687a"
+                                }
+                              ],
+                              "id": "6cfdf6ea-b8d6-4717-97c5-2938059b32a5",
+                              "createdAt": "2026-07-28T01:09:56.000Z",
+                              "updatedAt": "2026-07-28T01:09:56.000Z",
+                              "uid": "35240-6cfdf6ea-b8d6-4717-97c5-2938059b32a5"
+                            }
+                          ],
+                          "id": "9e525010-378c-4e5a-9a47-e840d5613f0c",
+                          "createdAt": "2026-07-28T01:09:56.000Z",
+                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                          "uid": "35240-9e525010-378c-4e5a-9a47-e840d5613f0c"
+                        }
+                      ],
+                      "id": "22d53d61-bd7e-4b81-8aa3-69a5000d0559",
+                      "createdAt": "2026-07-28T01:09:56.000Z",
+                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                      "uid": "35240-22d53d61-bd7e-4b81-8aa3-69a5000d0559"
+                    }
+                  ],
+                  "id": "6b1a0b54-5e3a-4242-adcf-9d670929f1fb",
+                  "createdAt": "2026-07-28T01:09:56.000Z",
+                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                  "uid": "35240-6b1a0b54-5e3a-4242-adcf-9d670929f1fb"
+                }
+              ],
+              "id": "995f2b0d-98e4-4c71-bd83-b2af0917d788",
+              "createdAt": "2026-07-28T01:09:56.000Z",
+              "updatedAt": "2026-07-28T01:09:56.000Z",
+              "uid": "35240-995f2b0d-98e4-4c71-bd83-b2af0917d788"
+            }
+          ],
+          "id": "3c323246-eb87-4a37-86a0-3e65bf7c6cdb",
+          "createdAt": "2026-07-28T01:09:56.000Z",
+          "updatedAt": "2026-07-28T01:09:56.000Z",
+          "uid": "35240-3c323246-eb87-4a37-86a0-3e65bf7c6cdb"
+        }
+      ],
+      "id": "1057a7f3-5fd0-490b-92b2-1b218b6124b3",
+      "createdAt": "2026-07-28T01:09:56.000Z",
+      "updatedAt": "2026-07-28T01:09:56.000Z",
+      "uid": "35240-1057a7f3-5fd0-490b-92b2-1b218b6124b3"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}
