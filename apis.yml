@@ -106,6 +106,19 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 common:
+  - type: IssueTracker
+    url: https://github.com/Azure/azure-sdk-for-net/issues
+  - type: Releases
+    url: https://github.com/Azure/azure-sdk-for-net/releases
+  - type: SecurityPolicy
+    url: https://github.com/Azure/azure-sdk-for-net/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/Azure/.github/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
+  - type: License
+    name: MIT
+    url: https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/azure-service-bus/overview
   - type: AgenticAccess
