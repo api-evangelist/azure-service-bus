@@ -4,6 +4,20 @@ description: >-
   Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics,
   providing reliable message delivery for decoupling applications and services in cloud and hybrid environments.
 type: Index
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -116,6 +130,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/azure-service-bus-capability-edges.yml
+    name: Azure Service Bus Business Capability Map
   - type: IssueTracker
     url: https://github.com/Azure/azure-sdk-for-net/issues
   - type: Releases
