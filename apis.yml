@@ -48,7 +48,7 @@ tags_raw:
 - Messaging
 - Pub/Sub
 - Queues
-url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml
+url: https://azure.microsoft.com/en-us/products/service-bus
 created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.23'

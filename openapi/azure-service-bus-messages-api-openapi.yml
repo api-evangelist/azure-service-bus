@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  title: Azure Service Bus REST Messages API
+  description: 'Azure Service Bus REST API supports messaging operations: sending, receiving, peeking, completing, abandoning, and renewing locks on messages from queues, topics, and subscriptions.'
+  version: 2017-04
+servers:
+- url: https://{namespace}.servicebus.windows.net
+  variables:
+    namespace:
+      default: mynamespace
+security:
+- sasToken: []
+tags:
+- name: Messages
+paths:
+  /{queuePath}/messages:
+    parameters:
+    - name: queuePath
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: sendMessage
+      summary: Service Bus Send message
+      description: Sends a message to a queue or topic.
+      tags:
+      - Messages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Message sent
+  /{queuePath}/messages/head:
+    parameters:
+    - name: queuePath
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: receiveAndDelete
+      summary: Service Bus Receive and delete
+      description: Receives the next message from a queue and deletes it.
+      tags:
+      - Messages
+      responses:
+        '200':
+          description: Message received
+          content:
+            application/json:
+              schema:
+                type: object
+        '204':
+          description: No message available
+    delete:
+      operationId: peekLockMessage
+      summary: Service Bus Peek-lock message
+      description: Peeks the next message and locks it for processing.
+      tags:
+      - Messages
+      responses:
+        '200':
+          description: Message peeked
+          content:
+            application/json:
+              schema:
+                type: object
+        '204':
+          description: No message
+  /{queuePath}/messages/{messageId}/{lockToken}:
+    parameters:
+    - name: queuePath
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: messageId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: lockToken
+      in: path
+      required: true
+      schema:
+        type: string
+    delete:
+      operationId: completeMessage
+      summary: Service Bus Complete message
+      description: Completes a peek-locked message.
+      tags:
+      - Messages
+      responses:
+        '200':
+          description: Completed
+    put:
+      operationId: renewLock
+      summary: Service Bus Renew lock
+      description: Renews the lock on a message.
+      tags:
+      - Messages
+      responses:
+        '200':
+          description: Lock renewed
+components:
+  securitySchemes:
+    sasToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: SAS token in Authorization header
+externalDocs:
+  description: Azure Service Bus REST API Documentation
+  url: https://learn.microsoft.com/en-us/rest/api/servicebus/
+x-generated-from: https://learn.microsoft.com/en-us/rest/api/servicebus/
+x-generated-by: claude-crawl-2026-05-08
