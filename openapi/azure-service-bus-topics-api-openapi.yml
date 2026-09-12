@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Azure Service Bus Management Namespaces Topics API
   description: The Azure Service Bus REST API provides operations for managing Service Bus resources including namespaces, queues, topics, subscriptions, and rules through the Azure Resource Manager.
@@ -236,37 +236,18 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    NamespaceName:
-      name: namespaceName
-      in: path
-      required: true
-      description: The namespace name.
-      schema:
-        type: string
-    ResourceGroupName:
-      name: resourceGroupName
-      in: path
-      required: true
-      description: Name of the resource group.
-      schema:
-        type: string
-    ApiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Client API version.
-      schema:
-        type: string
-        default: '2021-11-01'
-    SubscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The Azure subscription ID.
-      schema:
-        type: string
   schemas:
+    SBTopicListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBTopic'
+          example: []
+        nextLink:
+          type: string
+          example: example_value
     SBTopic:
       type: object
       properties:
@@ -353,17 +334,36 @@ components:
               format: int64
               readOnly: true
           example: example_value
-    SBTopicListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/SBTopic'
-          example: []
-        nextLink:
-          type: string
-          example: example_value
+  parameters:
+    NamespaceName:
+      name: namespaceName
+      in: path
+      required: true
+      description: The namespace name.
+      schema:
+        type: string
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Client API version.
+      schema:
+        type: string
+        default: '2021-11-01'
+    ResourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: Name of the resource group.
+      schema:
+        type: string
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The Azure subscription ID.
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2

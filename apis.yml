@@ -130,6 +130,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 common:
+  - type: Website
+    url: https://www.microsoft.com/
   - type: CapabilityMap
     url: capabilities/azure-service-bus-capability-edges.yml
     name: Azure Service Bus Business Capability Map
@@ -215,3 +217,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: microsoft-azure
+x-relationship: product
