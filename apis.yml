@@ -1,8 +1,6 @@
 aid: azure-service-bus
 name: Azure Service Bus
-description: >-
-  Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics,
-  providing reliable message delivery for decoupling applications and services in cloud and hybrid environments.
+description: Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics, providing reliable message delivery for decoupling applications and services in cloud and hybrid environments.
 type: Index
 deliveryModel:
   model: open-core
@@ -35,21 +33,21 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/azure-service-bus.png
 tags:
-  - Azure
-  - Cloud
-  - Enterprise
-  - Message Broker
-  - Messaging
-  - Pub-Sub
-  - Queues
+- Azure
+- Cloud
+- Enterprise
+- Message Broker
+- Messaging
+- Pub-Sub
+- Queues
 tags_raw:
-  - Azure
-  - Cloud
-  - Enterprise
-  - Message Broker
-  - Messaging
-  - Pub/Sub
-  - Queues
+- Azure
+- Cloud
+- Enterprise
+- Message Broker
+- Messaging
+- Pub/Sub
+- Queues
 url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml
 created: '2026-03-26'
 modified: '2026-05-19'
@@ -65,14 +63,11 @@ apis:
   - type: OpenAPI
     url: openapi/azure-service-bus-namespaces-api-openapi.yml
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 - aid: azure-service-bus:azure-service-bus-queues-api
   name: Azure Service Bus Queues API
   description: Service Bus queue operations
@@ -83,14 +78,11 @@ apis:
   - type: OpenAPI
     url: openapi/azure-service-bus-queues-api-openapi.yml
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 - aid: azure-service-bus:azure-service-bus-subscriptions-api
   name: Azure Service Bus Subscriptions API
   description: Service Bus topic subscription operations
@@ -103,14 +95,11 @@ apis:
   - type: OpenAPI
     url: openapi/azure-service-bus-subscriptions-api-openapi.yml
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
 - aid: azure-service-bus:azure-service-bus-topics-api
   name: Azure Service Bus Topics API
   description: Service Bus topic operations
@@ -121,101 +110,137 @@ apis:
   - type: OpenAPI
     url: openapi/azure-service-bus-topics-api-openapi.yml
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
-common:
-  - type: Website
-    url: https://www.microsoft.com/
-  - type: CapabilityMap
-    url: capabilities/azure-service-bus-capability-edges.yml
-    name: Azure Service Bus Business Capability Map
-  - type: IssueTracker
-    url: https://github.com/Azure/azure-sdk-for-net/issues
-  - type: Releases
-    url: https://github.com/Azure/azure-sdk-for-net/releases
-  - type: SecurityPolicy
-    url: https://github.com/Azure/azure-sdk-for-net/blob/main/SECURITY.md
-  - type: CodeOfConduct
-    url: https://github.com/Azure/.github/blob/main/CODE_OF_CONDUCT.md
-  - type: ContributionGuide
-    url: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
-  - type: License
-    name: MIT
-    url: https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/azure-service-bus/overview
-  - type: AgenticAccess
-    url: agentic-access/azure-service-bus-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/azure-service-bus-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/azure-service-bus-domain-security.yml
-  - type: Authentication
-    url: authentication/azure-service-bus-authentication.yml
-  - type: OAuthScopes
-    url: scopes/azure-service-bus-scopes.yml
-  - type: Portal
-    url: https://azure.microsoft.com/en-us/products/service-bus
+    url: https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld
+- aid: microsoft-azure-service-bus:management-api
+  name: Azure Service Bus Management REST API
+  description: The management REST API enables namespace, queue, topic, and subscription configuration through Azure Resource Manager, including SKU, network rules, authorization rules, and disaster recovery configuration.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://learn.microsoft.com/en-us/rest/api/servicebus/controlplane-stable/
+  baseURL: https://management.azure.com/
+  tags:
+  - Management
+  - Namespaces
+  - Provisioning
+  properties:
   - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal
-  - type: Pricing
-    url: https://azure.microsoft.com/en-us/pricing/details/service-bus/
-  - type: GitHubRepository
-    url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus
-  - type: Blog
-    url: https://azure.microsoft.com/en-us/blog/
-  - type: Features
-    data:
-      - name: Message Queues
-        description: >-
-          Point-to-point messaging with FIFO delivery, sessions, dead-lettering, and duplicate detection for reliable
-          asynchronous communication.
-      - name: Publish-Subscribe Topics
-        description: One-to-many messaging with topic subscriptions, filters, and actions for event-driven architectures.
-      - name: Dead-Letter Queue
-        description: Automatic routing of undeliverable or failed messages to a secondary queue for inspection and reprocessing.
-      - name: Scheduled Delivery
-        description: Schedule messages for future delivery at a specified time without requiring sender availability.
-      - name: Transactions
-        description: ACID transaction support for grouping multiple operations across queues and topics into atomic units.
-      - name: Auto-Forwarding
-        description: >-
-          Automatically forward messages from one queue or subscription to another entity for chaining processing
-          stages.
-  - type: UseCases
-    data:
-      - name: Application Decoupling
-        description: >-
-          Decouple microservices and distributed applications using asynchronous messaging for independent scaling and
-          deployment.
-      - name: Load Leveling
-        description: Buffer incoming requests during traffic spikes to protect backend services from overload.
-      - name: Event-Driven Architecture
-        description: Build event-driven systems using publish-subscribe topics to broadcast events to multiple subscribers.
-      - name: Workflow Orchestration
-        description: >-
-          Coordinate multi-step business processes using message sessions and scheduled delivery for reliable workflow
-          execution.
-  - type: Integrations
-    data:
-      - name: Azure Functions
-        description: Trigger serverless functions automatically when messages arrive in queues or topic subscriptions.
-      - name: Azure Logic Apps
-        description: Build automated workflows that send and receive Service Bus messages with no-code connectors.
-      - name: Azure Event Grid
-        description: Route Service Bus events to other Azure services for real-time event processing and monitoring.
-  - type: LlmsText
-    url: https://azure.microsoft.com/llms.txt
+    url: https://learn.microsoft.com/en-us/rest/api/servicebus/controlplane-stable/
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/azure/active-directory/develop/authentication-flows-app-scenarios
+- aid: microsoft-azure-service-bus:microsoft-azure-service-bus-messages-api
+  name: Azure Service Bus Messages API
+  description: The Messages API from Azure Service Bus — 3 operation(s) for messages.
+  humanURL: https://learn.microsoft.com/en-us/rest/api/servicebus/
+  baseURL: https://{namespace}.servicebus.windows.net/
+  tags:
+  - Message
+  tags_raw:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-service-bus-messages-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/servicebus/
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/rest/api/eventhub/authenticate-shared-access-signature
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/rest/api/servicebus/resourceprovider
+common:
+- type: GitHubOrganization
+  url: https://github.com/Azure
+- type: SDKs
+  url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues
+- type: StatusPage
+  url: https://azure.status.microsoft/en-us/status
+- type: TermsOfService
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/en-us/privacystatement
+- type: Support
+  url: https://support.microsoft.com/
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/azureservicebus
+- type: Website
+  url: https://www.microsoft.com/
+- type: CapabilityMap
+  url: capabilities/azure-service-bus-capability-edges.yml
+  name: Azure Service Bus Business Capability Map
+- type: IssueTracker
+  url: https://github.com/Azure/azure-sdk-for-net/issues
+- type: Releases
+  url: https://github.com/Azure/azure-sdk-for-net/releases
+- type: SecurityPolicy
+  url: https://github.com/Azure/azure-sdk-for-net/blob/main/SECURITY.md
+- type: CodeOfConduct
+  url: https://github.com/Azure/.github/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md
+- type: License
+  name: MIT
+  url: https://github.com/Azure/azure-sdk-for-net/blob/main/LICENSE
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/azure-service-bus/overview
+- type: AgenticAccess
+  url: agentic-access/azure-service-bus-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/azure-service-bus-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/azure-service-bus-domain-security.yml
+- type: Authentication
+  url: authentication/azure-service-bus-authentication.yml
+- type: OAuthScopes
+  url: scopes/azure-service-bus-scopes.yml
+- type: Portal
+  url: https://azure.microsoft.com/en-us/products/service-bus
+- type: Documentation
+  url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/
+- type: GettingStarted
+  url: https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal
+- type: Pricing
+  url: https://azure.microsoft.com/en-us/pricing/details/service-bus/
+- type: GitHubRepository
+  url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus
+- type: Blog
+  url: https://azure.microsoft.com/en-us/blog/
+- type: Features
+  data:
+  - name: Message Queues
+    description: Point-to-point messaging with FIFO delivery, sessions, dead-lettering, and duplicate detection for reliable asynchronous communication.
+  - name: Publish-Subscribe Topics
+    description: One-to-many messaging with topic subscriptions, filters, and actions for event-driven architectures.
+  - name: Dead-Letter Queue
+    description: Automatic routing of undeliverable or failed messages to a secondary queue for inspection and reprocessing.
+  - name: Scheduled Delivery
+    description: Schedule messages for future delivery at a specified time without requiring sender availability.
+  - name: Transactions
+    description: ACID transaction support for grouping multiple operations across queues and topics into atomic units.
+  - name: Auto-Forwarding
+    description: Automatically forward messages from one queue or subscription to another entity for chaining processing stages.
+- type: UseCases
+  data:
+  - name: Application Decoupling
+    description: Decouple microservices and distributed applications using asynchronous messaging for independent scaling and deployment.
+  - name: Load Leveling
+    description: Buffer incoming requests during traffic spikes to protect backend services from overload.
+  - name: Event-Driven Architecture
+    description: Build event-driven systems using publish-subscribe topics to broadcast events to multiple subscribers.
+  - name: Workflow Orchestration
+    description: Coordinate multi-step business processes using message sessions and scheduled delivery for reliable workflow execution.
+- type: Integrations
+  data:
+  - name: Azure Functions
+    description: Trigger serverless functions automatically when messages arrive in queues or topic subscriptions.
+  - name: Azure Logic Apps
+    description: Build automated workflows that send and receive Service Bus messages with no-code connectors.
+  - name: Azure Event Grid
+    description: Route Service Bus events to other Azure services for real-time event processing and monitoring.
+- type: LlmsText
+  url: https://azure.microsoft.com/llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-parent: microsoft-azure
 x-relationship: product
