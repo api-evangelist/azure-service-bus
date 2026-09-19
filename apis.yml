@@ -105,6 +105,8 @@ apis:
   description: Service Bus topic operations
   humanURL: https://azure.microsoft.com/en-us/products/service-bus
   tags:
+  - Topic
+  tags_raw:
   - Topics
   properties:
   - type: OpenAPI
