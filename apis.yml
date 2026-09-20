@@ -151,6 +151,8 @@ apis:
   - type: Reference
     url: https://learn.microsoft.com/en-us/rest/api/servicebus/resourceprovider
 common:
+- type: Plans
+  url: plans/azure-service-bus-plans-pricing.yml
 - type: GitHubOrganization
   url: https://github.com/Azure
 - type: SDKs
