@@ -10,6 +10,11 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
+  managed_tier: Basic
 published: true
 note: Most unit prices render as "$-" (region/currency-dependent values not present in text); only Geo-Replication
   data transfer rates and the incidental "less than $0.05 per month" keep-alive figure are numeric. A
