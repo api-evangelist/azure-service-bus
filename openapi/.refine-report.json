@@ -1,26 +1,30 @@
 {
   "provider": "azure-service-bus",
   "sources": [
-    "azure-service-bus-namespaces-api-openapi.yml",
-    "azure-service-bus-queues-api-openapi.yml",
-    "azure-service-bus-subscriptions-api-openapi.yml",
-    "azure-service-bus-topics-api-openapi.yml"
+    "_original/azure-service-bus-openapi.yml",
+    "azure-service-bus-messages-api-openapi.yml"
   ],
   "outputs": [
     "azure-service-bus-namespaces-api-openapi.yml",
     "azure-service-bus-queues-api-openapi.yml",
     "azure-service-bus-subscriptions-api-openapi.yml",
-    "azure-service-bus-topics-api-openapi.yml"
+    "azure-service-bus-topics-api-openapi.yml",
+    "azure-service-bus-messages-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "azure-service-bus-messages-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /{queuePath}/messages post, /{queuePath}/messages/head delete, /{queuePath}/messages/head post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
   "notes": [
-    "azure-service-bus-namespaces-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "azure-service-bus-queues-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "azure-service-bus-subscriptions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "azure-service-bus-topics-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "azure-service-bus-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "azure-service-bus-namespaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "azure-service-bus-queues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "azure-service-bus-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "azure-service-bus-topics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
