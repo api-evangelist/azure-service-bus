@@ -40,6 +40,7 @@ tags:
 - Messaging
 - Pub-Sub
 - Queues
+- Real-Time
 tags_raw:
 - Azure
 - Cloud
@@ -48,6 +49,7 @@ tags_raw:
 - Messaging
 - Pub/Sub
 - Queues
+- Real-Time
 url: https://azure.microsoft.com/en-us/products/service-bus
 created: '2026-03-26'
 modified: '2026-05-19'
