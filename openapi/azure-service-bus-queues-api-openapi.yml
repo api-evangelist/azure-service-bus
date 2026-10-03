@@ -249,14 +249,13 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    ApiVersion:
-      name: api-version
-      in: query
+    SubscriptionId:
+      name: subscriptionId
+      in: path
       required: true
-      description: Client API version.
+      description: The Azure subscription ID.
       schema:
         type: string
-        default: '2021-11-01'
     ResourceGroupName:
       name: resourceGroupName
       in: path
@@ -271,14 +270,26 @@ components:
       description: The namespace name.
       schema:
         type: string
-    SubscriptionId:
-      name: subscriptionId
-      in: path
+    ApiVersion:
+      name: api-version
+      in: query
       required: true
-      description: The Azure subscription ID.
+      description: Client API version.
       schema:
         type: string
+        default: '2021-11-01'
   schemas:
+    SBQueueListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBQueue'
+          example: []
+        nextLink:
+          type: string
+          example: example_value
     SBQueue:
       type: object
       properties:
@@ -373,17 +384,6 @@ components:
               type: integer
               format: int64
               readOnly: true
-          example: example_value
-    SBQueueListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/SBQueue'
-          example: []
-        nextLink:
-          type: string
           example: example_value
   securitySchemes:
     azure_auth:
