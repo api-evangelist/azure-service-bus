@@ -237,11 +237,11 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    SubscriptionId:
-      name: subscriptionId
+    NamespaceName:
+      name: namespaceName
       in: path
       required: true
-      description: The Azure subscription ID.
+      description: The namespace name.
       schema:
         type: string
     ResourceGroupName:
@@ -249,13 +249,6 @@ components:
       in: path
       required: true
       description: Name of the resource group.
-      schema:
-        type: string
-    NamespaceName:
-      name: namespaceName
-      in: path
-      required: true
-      description: The namespace name.
       schema:
         type: string
     ApiVersion:
@@ -266,7 +259,25 @@ components:
       schema:
         type: string
         default: '2021-11-01'
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The Azure subscription ID.
+      schema:
+        type: string
   schemas:
+    SBTopicListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SBTopic'
+          example: []
+        nextLink:
+          type: string
+          example: example_value
     SBTopic:
       type: object
       properties:
@@ -352,17 +363,6 @@ components:
               type: integer
               format: int64
               readOnly: true
-          example: example_value
-    SBTopicListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/SBTopic'
-          example: []
-        nextLink:
-          type: string
           example: example_value
   securitySchemes:
     azure_auth:
