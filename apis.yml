@@ -153,6 +153,10 @@ apis:
   - type: Reference
     url: https://learn.microsoft.com/en-us/rest/api/servicebus/resourceprovider
 common:
+- type: RateLimits
+  url: rate-limits/azure-service-bus-rate-limits.yml
+- type: FinOps
+  url: finops/azure-service-bus-finops.yml
 - type: Plans
   url: plans/azure-service-bus-plans-pricing.yml
 - type: GitHubOrganization
