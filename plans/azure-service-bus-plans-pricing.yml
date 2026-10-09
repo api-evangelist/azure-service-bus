@@ -77,3 +77,77 @@ rate_limit_statements:
 - Each premium namespace can have 1, 2, or 4 messaging units
 - Note that 100 brokered connections are allowed at no charge in a basic namespace (this is also the maximum
   number of brokered connections allowed for the Azure subscription).
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - compute
+  - data
+  plans:
+  - name: Premium Geo-Replication Zone 1 (North America and Europe)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Premium Geo-Replication Zone 2 (Asia, Oceania, Middle East, and Africa)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Premium Geo-Replication Zone 3 (South America)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Basic Operations
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Standard Base charge
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Premium Hourly
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Hybrid Connection
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: WCF Relay
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
