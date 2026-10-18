@@ -33,12 +33,12 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/azure-service-bus.png
 tags:
-- Azure
+- Microsoft Azure
 - Cloud
 - Enterprise
 - Message Broker
 - Messaging
-- Pub-Sub
+- Pub/Sub
 - Queues
 - Real-Time
 tags_raw:
