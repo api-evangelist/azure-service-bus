@@ -27,5 +27,5 @@
     - connectors/events/azure-service-bus
     vendor_link: https://azure.microsoft.com/en-in/services/service-bus/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
