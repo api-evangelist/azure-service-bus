@@ -1,14 +1,11 @@
 {
   "provider": "azure-service-bus",
   "sources": [
-    "_original/azure-service-bus-openapi.yml",
+    "_original/azure-service-bus-openapi.json",
     "azure-service-bus-messages-api-openapi.yml"
   ],
   "outputs": [
-    "azure-service-bus-namespaces-api-openapi.yml",
-    "azure-service-bus-queues-api-openapi.yml",
-    "azure-service-bus-subscriptions-api-openapi.yml",
-    "azure-service-bus-topics-api-openapi.yml",
+    "azure-service-bus-webapps-api-openapi.yml",
     "azure-service-bus-messages-api-openapi.yml"
   ],
   "archived": [],
@@ -18,13 +15,9 @@
   ],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "azure-service-bus-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "azure-service-bus-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-service-bus-openapi.json: declared missing tag: WebApps",
+    "apis.yml register: written (+1 apis, 3 total)"
   ],
-  "skipped": [
-    "azure-service-bus-namespaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "azure-service-bus-queues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "azure-service-bus-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "azure-service-bus-topics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
