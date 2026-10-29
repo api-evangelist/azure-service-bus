@@ -1,4 +1,4 @@
-# Azure Service Bus (azure-service-bus)
+# Azure Service Bus
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,70 +66,226 @@
 
 Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics, providing reliable message delivery for decoupling applications and services in cloud and hybrid environments.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/apis.yml)
+**Areas:** Microsoft Azure · Cloud · Enterprise · Message Broker · Messaging · Pub/Sub · Queues · Real-Time
 
-## Scope
+## Azure Service Bus on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Azure Service Bus is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/azure-service-bus/](https://apis.io/providers/azure-service-bus/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Azure
-- Cloud
-- Enterprise
-- Message Broker
-- Messaging
-- Pub/Sub
-- Queues
+- [Azure Service Bus Namespaces API](https://apis.io/apis/azure-service-bus/azure-service-bus-namespaces-api/) — Service Bus namespace operations
+- [Azure Service Bus Queues API](https://apis.io/apis/azure-service-bus/azure-service-bus-queues-api/) — Service Bus queue operations
+- [Azure Service Bus Subscriptions API](https://apis.io/apis/azure-service-bus/azure-service-bus-subscriptions-api/) — Service Bus topic subscription operations
+- [Azure Service Bus Topics API](https://apis.io/apis/azure-service-bus/azure-service-bus-topics-api/) — Service Bus topic operations
+- [Azure Service Bus Management REST API](https://apis.io/apis/azure-service-bus/management-api/) — The management REST API enables namespace, queue, topic, and subscription configuration through Azure Resource Manager, including SKU, network rules,…
+- [Azure Service Bus Messages API](https://apis.io/apis/azure-service-bus/microsoft-azure-service-bus-messages-api/) — The Messages API from Azure Service Bus — 3 operation(s) for messages.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Azure Service Bus
+Event-driven and webhook contracts.
 
-Azure Service Bus is a fully managed enterprise message broker supporting message queues and publish-subscribe topics with features like dead-lettering, sessions, scheduled delivery, and transactions for building reliable distributed applications.
+- [Azure Service Bus Messaging](https://apis.io/asyncapis/azure-service-bus/azure-service-bus-asyncapi/)
 
-- **Human URL:** [https://azure.microsoft.com/en-us/products/service-bus](https://azure.microsoft.com/en-us/products/service-bus)
+#### Event channels (3)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Azure
-- Cloud
-- Enterprise
-- Message Broker
-- Messaging
-- Pub/Sub
-- Queues
+- [{queueName}](https://apis.io/channels/azure-service-bus/queuename/)
+- [{topicName}](https://apis.io/channels/azure-service-bus/topicname/)
+- [{topicName}/subscriptions/{subscriptionName}](https://apis.io/channels/azure-service-bus/topicname-subscriptions-subscriptionname/)
 
-#### Properties
+#### Agentic access (1)
 
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/openapi/azure-service-bus-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/asyncapi/azure-service-bus-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-schema/azure-service-bus-queue.yml) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/azure-service-bus/refs/heads/main/json-ld/azure-service-bus-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Postman Collection](collections/azure-service-bus.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/azure-service-bus.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Common Properties
+- [Azure Service Bus Agentic Access](https://apis.io/agentic-access/azure-service-bus/azure-service-bus-agentic-access/)
 
-- [Portal](https://azure.microsoft.com/en-us/products/service-bus)
+#### JSON Schema (8)
+
+The data models the API reads and writes.
+
+- [SBNamespace](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-namespace/)
+- [SBNamespaceListResult](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-namespace-list-result/)
+- [SBQueue](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-queue/)
+- [SBQueueListResult](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-queue-list-result/)
+- [SBSubscription](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-subscription/)
+- [SBSubscriptionListResult](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-subscription-list-result/)
+- [SBTopic](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-topic/)
+- [SBTopicListResult](https://apis.io/schemas/azure-service-bus/azure-service-bus-sb-topic-list-result/)
+
+#### JSON Structure (8)
+
+Data models expressed in JSON Structure.
+
+- [Azure Service Bus Sb Namespace List Result Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-namespace-list-result-structure/)
+- [Azure Service Bus Sb Namespace Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-namespace-structure/)
+- [Azure Service Bus Sb Queue List Result Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-queue-list-result-structure/)
+- [Azure Service Bus Sb Queue Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-queue-structure/)
+- [Azure Service Bus Sb Subscription List Result Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-subscription-list-result-structure/)
+- [Azure Service Bus Sb Subscription Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-subscription-structure/)
+- [Azure Service Bus Sb Topic List Result Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-topic-list-result-structure/)
+- [Azure Service Bus Sb Topic Structure](https://apis.io/json-structure/azure-service-bus/azure-service-bus-sb-topic-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Azure Service Bus Context](https://apis.io/jsonld/azure-service-bus/azure-service-bus-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [azure-service-bus API Vocabulary](https://apis.io/vocabularies/azure-service-bus/azure-service-bus-vocabulary/)
+
+#### Examples (8)
+
+Example requests and responses.
+
+- [Azure Service Bus Sb Namespace Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-namespace-example/)
+- [Azure Service Bus Sb Namespace List Result Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-namespace-list-result-example/)
+- [Azure Service Bus Sb Queue Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-queue-example/)
+- [Azure Service Bus Sb Queue List Result Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-queue-list-result-example/)
+- [Azure Service Bus Sb Subscription Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-subscription-example/)
+- [Azure Service Bus Sb Subscription List Result Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-subscription-list-result-example/)
+- [Azure Service Bus Sb Topic Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-topic-example/)
+- [Azure Service Bus Sb Topic List Result Example](https://apis.io/examples/azure-service-bus/azure-service-bus-sb-topic-list-result-example/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Azure Service Bus Management API](https://apis.io/collections/azure-service-bus/open-azure-service-bus/)
+- [Azure Service Bus Management Namespaces API](https://apis.io/collections/azure-service-bus/open-azure-service-bus-namespaces-api/)
+- [Azure Service Bus Management Namespaces Queues API](https://apis.io/collections/azure-service-bus/open-azure-service-bus-queues-api/)
+- [Azure Service Bus Management Namespaces Subscriptions API](https://apis.io/collections/azure-service-bus/open-azure-service-bus-subscriptions-api/)
+- [Azure Service Bus Management Namespaces Topics API](https://apis.io/collections/azure-service-bus/open-azure-service-bus-topics-api/)
+- [Azure Service Bus Management Namespaces API](https://apis.io/collections/azure-service-bus/postman-azure-service-bus-namespaces-api/)
+- [Azure Service Bus Management Namespaces Queues API](https://apis.io/collections/azure-service-bus/postman-azure-service-bus-queues-api/)
+- [Azure Service Bus Management Namespaces Subscriptions API](https://apis.io/collections/azure-service-bus/postman-azure-service-bus-subscriptions-api/)
+- [Azure Service Bus Management Namespaces Topics API](https://apis.io/collections/azure-service-bus/postman-azure-service-bus-topics-api/)
+
+#### Overlays (5)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Azure Service Bus Messages Api Phrasing Overlay](https://apis.io/overlays/azure-service-bus/azure-service-bus-messages-api-phrasing-overlay/)
+- [Azure Service Bus Namespaces Api Phrasing Overlay](https://apis.io/overlays/azure-service-bus/azure-service-bus-namespaces-api-phrasing-overlay/)
+- [Azure Service Bus Queues Api Phrasing Overlay](https://apis.io/overlays/azure-service-bus/azure-service-bus-queues-api-phrasing-overlay/)
+- [Azure Service Bus Subscriptions Api Phrasing Overlay](https://apis.io/overlays/azure-service-bus/azure-service-bus-subscriptions-api-phrasing-overlay/)
+- [Azure Service Bus Topics Api Phrasing Overlay](https://apis.io/overlays/azure-service-bus/azure-service-bus-topics-api-phrasing-overlay/)
+
+#### Governance rules (3)
+
+Spectral rulesets for the provider's contracts.
+
+- [Azure Service Bus — asyncapi rules](https://apis.io/rules/azure-service-bus/azure-service-bus-asyncapi-spectral-rules/)
+- [Azure Service Bus — jsonschema rules](https://apis.io/rules/azure-service-bus/azure-service-bus-jsonschema-spectral-rules/)
+- [Azure Service Bus API Rules](https://apis.io/rules/azure-service-bus/azure-service-bus-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Azure Service Bus Authentication](https://apis.io/security/azure-service-bus/azure-service-bus-authentication/)
+- [Azure Service Bus Domain Security](https://apis.io/security/azure-service-bus/azure-service-bus-domain-security/)
+- [Azure Service Bus Vulnerability Disclosure](https://apis.io/security/azure-service-bus/azure-service-bus-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Azure Service Bus Scopes](https://apis.io/scopes/azure-service-bus/azure-service-bus-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Azure Service Bus Plans Pricing](https://apis.io/plans/azure-service-bus/azure-service-bus-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Azure Service Bus Rate Limits](https://apis.io/rate-limits/azure-service-bus/azure-service-bus-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Azure Service Bus Finops](https://apis.io/finops/azure-service-bus/azure-service-bus-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.microsoft.com/)
 - [Documentation](https://learn.microsoft.com/en-us/azure/service-bus-messaging/)
-- [Getting Started](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal)
+- [Getting started](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/service-bus/)
-- [GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus)
+- [Support](https://support.microsoft.com/)
 - [Blog](https://azure.microsoft.com/en-us/blog/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [L L Ms Txt](https://azure.microsoft.com/llms.txt)
+- [Terms of service](https://www.microsoft.com/en-us/legal/terms-of-use)
+- [Privacy policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [GitHub](https://github.com/Azure)
+- [Status](https://azure.status.microsoft/en-us/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 66.6** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 62.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 65.5 |
+| Access clarity | 63.2 |
+
+**Agent readiness 25.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/azure-service-bus/](https://apis.io/providers/azure-service-bus/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Azure Service Bus: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/azure-service-bus/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
